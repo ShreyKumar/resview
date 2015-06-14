@@ -1,0 +1,19 @@
+<section data-ng-controller="ResidencesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Residences</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="residence in residences" data-ng-href="#!/residences/{{residence._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="residence.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="residence.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="residence.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!residences.$resolved || residences.length">
+    	No Residences yet, why don't you <a href="/#!/residences/create">create one</a>?
+    </div>
+</section>
