@@ -15,13 +15,29 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+                'http://fonts.googleapis.com/css?family=PT+Sans:400,700',
+                'public/lib/css/styles.css',
+                'public/lib/css/custom.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+                'http://code.jquery.com/jquery-1.11.3.min.js',
+                'public/lib/js/backstretch.min.js',
+                'public/lib/js/counter.js',
+                'public/lib/js/jquery.waypoints.min.js',
+                'public/lib/js/inview.min.js',
+                'public/lib/js/scrolltopcontrol.js',
+                'public/lib/js/wow.min.js',
+                'public/lib/js/contact.js',
+                'public/lib/js/custom.js',
+                'public/lib/js/custom_hero.js',
+                'public/lib/js/custom_skills.js',
+                'public/lib/js/custom_countto.js',
+                'public/lib/js/custom_google-map.js'
 			]
 		},
 		css: [

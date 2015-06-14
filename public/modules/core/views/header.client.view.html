@@ -1,58 +1,195 @@
 <div class="container" data-ng-controller="HeaderController">
-	<div class="navbar-header">
-		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a href="/#!/" class="navbar-brand">ResView</a>
-	</div>
-	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
-					<b class="caret"></b>
-				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
-						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
-				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
-			</li>
-			<li class="divider-vertical"></li>
-			<li ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Sign In</a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="/#!/settings/profile">Edit Profile</a>
-					</li>
-					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
-					</li>
-					<li data-ng-show="authentication.user.provider === 'local'">
-						<a href="/#!/settings/password">Change Password</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/auth/signout">Signout</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
+	
+    <!-- PRELOADER
+    ============================== -->
+    <div class="preloader">
+      <img src="img/preloader.gif" alt="Loading..." class="preloader__img">
+    </div>
+
+
+    <!-- STATIC TOPBAR
+    ============================== -->
+    <div class="topbar hidden-xs hidden-sm">
+      <div class="container">
+        <!-- Social links -->
+        <ul class="topbar-nav topbar-nav_left">
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fa fa-vk"></i></a></li>
+          <li><a href="#"><i class="fa fa-stumbleupon"></i></a></li>
+        </ul>
+        <ul class="topbar-nav topbar-nav_right">
+          <li>
+            <!-- Search form -->
+            <form class="form-inline topbar__search" role="form">
+              <label class="sr-only" for="nav-search">Search</label>
+              <input type="search" class="form-control" id="nav-search" placeholder="Search here...">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
+          <!-- Account links -->
+          <li><a href="sign-in.html">Sign In</a></li>
+          <li><a href="sing-up.html">Sign Up</a></li>
+          <li><a href="shopping-cart.html">My Cart (0)</a></li>
+        </ul>
+      </div> <!-- / .container -->
+    </div> <!-- / .topbar -->
+    <div class="navbar__hr hidden-xs hidden-sm"></div>
+
+
+    <!-- STATIC NAVBAR
+    ============================== -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- Toggle button -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Brand name -->
+          <a class="navbar-brand" href="index.html">Beatrix</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!-- Navbar links -->
+          <ul class="nav navbar-nav navbar-right">
+
+            <!-- Home -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Home <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="active"><a href="index.html">Home: Default</a></li>
+                <li><a href="index_carousel.html">Home: Carousel</a></li>
+              </ul>
+            </li>
+
+            <!-- Profile -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Profile <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="sign-in.html">Sign In: Default</a></li>
+                    <li><a href="sign-in_option-1.html">Sign In: Option 1</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Up</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="sign-up.html">Sign Up: Default</a></li>
+                    <li><a href="sign-up_option-1.html">Sign Up: Option 1</a></li>
+                  </ul>
+                </li>
+                <li><a href="profile.html">User Profile</a></li>
+              </ul>
+            </li>
+
+            <!-- Portfolio -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Portfolio <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio-item.html">Portfolio Item</a></li>
+              </ul>
+            </li>
+
+            <!-- Blog -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Blog <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog-post.html">Blog Post</a></li>
+              </ul>
+            </li>
+
+            <!-- Shop -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Shop <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop-item.html">Shop Item</a></li>
+                <li><a href="shopping-cart.html">Shopping Cart</a></li>
+              </ul>
+            </li>
+
+            <!-- More pages -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                More Pages <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="coming-soon.html">Coming Soon</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help Center</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li><a href="help-item.html">Help Item</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pricing Options</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="pricing_boxes.html">Pricing Options: Boxes</a></li>
+                    <li><a href="pricing_table.html">Pricing Options: Table</a></li>
+                  </ul>
+                </li> 
+                <li><a href="services.html">Services</a></li>
+                <li><a href="search-results.html">Search Results</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="error-page.html">404 Error</a></li>               
+              </ul>
+            </li>
+
+            <!-- UI Elements -->
+            <li><a href="ui-elements.html">UI Elements</a></li>
+          </ul>
+          <!-- Search form (for collapsed menu only) -->
+          <form class="navbar-form navbar-left visible-xs visible-sm" role="search">
+            <div class="form-group">
+              <label class="sr-only" for="nav-search-xs">Search</label>
+              <input type="search" class="form-control" id="nav-search-xs" placeholder="Search here...">
+            </div>
+          </form>
+        </div> <!-- / .navbar-collapse -->
+      </div> <!-- / .container -->
+    </div> <!-- / .navbar -->
+
+
+      <!-- Backstretch controls -->
+      <div class="hero__ctrl js-hero-bs__ctrl">
+        <a href="#hero__carousel" role="button" data-slide="prev">
+          <i class="fa fa-step-backward"></i>
+        </a>
+        <a href="#" data-slide="pause" class="visible-inline-block playback">
+          <i class="fa fa-pause"></i>
+        </a>
+        <a href="#" data-slide="resume" class="playback hidden">
+          <i class="fa fa-play"></i>
+        </a>
+        <a href="#hero__carousel" role="button" data-slide="next">
+          <i class="fa fa-step-forward"></i>
+        </a>
+      </div> <!-- / .hero__ctrl -->
+    </div> <!-- / .hero -->
+
 </div>
