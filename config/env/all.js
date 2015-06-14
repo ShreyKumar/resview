@@ -15,9 +15,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-                'http://fonts.googleapis.com/css?family=PT+Sans:400,700',
                 'public/lib/css/styles.css',
-                'public/lib/css/custom.css'
+                'public/lib/css/animate.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -36,8 +35,7 @@ module.exports = {
                 'public/lib/js/custom.js',
                 'public/lib/js/custom_hero.js',
                 'public/lib/js/custom_skills.js',
-                'public/lib/js/custom_countto.js',
-                'public/lib/js/custom_google-map.js'
+                'public/lib/js/custom_countto.js'
 			]
 		},
 		css: [
