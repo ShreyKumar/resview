@@ -9,7 +9,11 @@ angular.module('residences').controller('ResidencesController', ['$scope', '$sta
 		$scope.create = function() {
 			// Create new Residence object
 			var residence = new Residences ({
-				name: this.name
+				name: this.name,
+                comments: this.comments,
+                foodquality: this.foodquality,
+                convinience: this.convinience,
+                overallexp: this.overallexp
 			});
 
 			// Redirect after save

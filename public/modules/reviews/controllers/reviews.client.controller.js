@@ -9,7 +9,11 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 		$scope.create = function() {
 			// Create new Review object
 			var review = new Reviews ({
-				name: this.name
+				name: this.name,
+                comments: this.comments,
+                foodquality: this.foodquality,
+                convinience: this.convinience,
+                overallexp: this.overallexp
 			});
 
 			// Redirect after save
