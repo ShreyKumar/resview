@@ -36,6 +36,8 @@
 
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
+    
+    <link href="lib/css/main.css" rel="stylesheet" />
 
 	<!-- HTML5 Shim -->
 	<!--[if lt IE 9]>
@@ -44,11 +46,9 @@
 </head>
 
 <body class="ng-cloak">
-	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-	<section class="content">
-		<section class="container">
-			{% block content %}{% endblock %}
-		</section>
+	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default resview-nav"></header>
+	<section>
+        {% block content %}{% endblock %}
 	</section>
 
 	<!--Embedding The User Object-->

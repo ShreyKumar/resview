@@ -15,10 +15,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-                'public/lib/css/simple-sidebar.css'
-                //'http://fonts.googleapis.com/css?family=PT+Sans:400,700'
-                //'public/lib/css/styles.css',
-                //'public/lib/css/animate.css'
+                'http://shreykumar.com/css/stylish-portfolio.css',
+                'public/lib/css/custom.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',

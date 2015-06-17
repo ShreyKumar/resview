@@ -13,3 +13,43 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+#home {
+    background: url(../img/img/uc.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+div.main {
+    background-color: white;
+    height: 70%;
+    margin-top: 7%;
+    opacity: 0.7;
+    width: 80%;
+}
+
+div.main > h1 {
+    font-size: 47px;   
+}
+div.main > h4 {
+    font-size: 32px;   
+}
+div.main > h5 {
+    font-size: 29px;   
+}
+ul#features {
+    list-style-type: none;   
+}
+ul#features > li {
+    font-size: 25px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+div#btn-register > a {
+    background-color: black;
+    border-radius: 0px;
+    color: white;
+    width: 20%;
+    margin-right: 5%;
+}   
