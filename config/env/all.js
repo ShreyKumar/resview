@@ -15,6 +15,16 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+                'public/lib/css/font-awesome.min.css',
+                /*
+                'public/lib/fonts/fontawesome-webfont.eot',
+                'public/lib/fonts/fontawesome-webfont.svg',
+                'public/lib/fonts/fontawesome-webfont.ttf',
+                'public/lib/fonts/fontawesome-webfont.woff',
+                'public/lib/fonts/fontawesome-webfont.woff2',
+                'public/lib/fonts/FontAwesome.otf',
+                */
+                'http://shreykumar.com/font-awesome/css/font-awesome.min.css',
                 'http://shreykumar.com/css/stylish-portfolio.css',
                 'public/lib/css/custom.css',
                 'public/lib/css/form.css'
