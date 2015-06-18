@@ -12,6 +12,14 @@
 	right: 10px;
 	position: absolute;
 }
-div.row > div.main-fix {
-    padding-left: 5%;   
+@media(max-width: 530px){
+    div.main.main-fix {
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+        padding-top: 5%;
+    }
+}
+div.main.main-fix {
+    padding-left: 5%;
+    padding-right: 5%;
 }

@@ -8,6 +8,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
 		// Home state routing
 		$stateProvider.
+		state('viewboard', {
+			url: '/viewboard',
+			templateUrl: 'modules/core/views/viewboard.client.view.html'
+		}).
 		state('trinity', {
 			url: '/trin',
 			templateUrl: 'modules/core/views/trinity.client.view.html'
