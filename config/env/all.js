@@ -16,7 +16,8 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
                 'http://shreykumar.com/css/stylish-portfolio.css',
-                'public/lib/css/custom.css'
+                'public/lib/css/custom.css',
+                'pubic/lib/css/form.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',

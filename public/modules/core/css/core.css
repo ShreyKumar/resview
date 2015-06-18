@@ -1,5 +1,5 @@
 .content {
-	padding-top: 50px;
+	margin-top: 50px;
 }
 .undecorated-link:hover {
 	text-decoration: none;
@@ -70,7 +70,5 @@ video#bgvid {
     z-index: -100;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(../img/img/uc.jpg) no-repeat;
     background-size: cover;
-    background-color: black;
 }
