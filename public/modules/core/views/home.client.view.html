@@ -1,13 +1,32 @@
 <section data-ng-controller="HomeController" id="home">
+    <!-- HTML5 video -->
+    <video autoplay loop id="bgvid">
+        
+    </video>
     <div class="main container">
         <h1 class="text-center">Welcome to Res<b>View</b></h1>
         <h4>Hey there, University of Toronto! Ever wanted a review site for residences? Well, here it is.</h4>
         <h5>Res<b>View</b> lets you:</h5>
-        <ul id="features">
-            <li><div class="glyphicon glyphicon-ok"></div>    Write reviews for your Residence</li>
-            <li><div class="glyphicon glyphicon-ok"></div>    Look at reviews for your residence, floor and even your don! So you know what to expect before you move in</li>
-            <li><div class="glyphicon glyphicon-ok"></div>    Make the right decision when choosing where to live on campus</li>
-        </ul>
+        <div id="features" class="row">
+            <div class="col-md-4">
+                <div class="feature text-center">
+                    <div class="symbol glyphicon glyphicon-pencil"></div>
+                    <div class="text">Write reviews for your Residence<br><br></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature text-center">
+                    <div class="symbol glyphicon glyphicon-home"></div>
+                    <div class="text">Look at reviews for your residence, floor and even your don!</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature text-center">
+                    <div class="symbol glyphicon glyphicon-thumbs-up"></div>
+                    <div class="text">Make the right decision when choosing where to live on campus</div>
+                </div>
+            </div>
+        </div>
         <div id="btn-register" class="text-center">
             <a href="/#!/signup" class="btn btn-lg btn-dark">Sign up</a>
             <a href="/#!/signin" class="btn btn-lg btn-dark">Sign in</a>
