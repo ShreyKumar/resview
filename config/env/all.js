@@ -25,7 +25,8 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-                'http://code.jquery.com/jquery-2.1.4.min.js'
+                'http://code.jquery.com/jquery-2.1.4.min.js',
+                'public/lib/js/form.js'
                 /*
                 'public/lib/js/backstretch.min.js',
                 'public/lib/js/counter.js',
