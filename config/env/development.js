@@ -6,8 +6,8 @@ module.exports = {
 		title: 'ResView - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '483004465185679',
+		clientSecret: process.env.FACEBOOK_SECRET || '00b039ff81542cd4fc38c5cc43ad2631',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
