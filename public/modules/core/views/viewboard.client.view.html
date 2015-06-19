@@ -1,7 +1,12 @@
-<section data-ng-controller="HomeController" class="content container bg harthouse">
-    <div class="main">
-        <h3 class="text-center">Hello there {{ authentication.user.displayName }}</h3>
-        <h4>Here's what your friends have been up to</h4>
-        
+<section data-ng-controller="ViewBoardController" class="content container bg harthouse">
+    <div class="main" style="margin-top: 3%">
+        <h2 class="text-center">Hello there {{ authentication.user.displayName }}</h2>
+        <div class="container">
+            <h3>Here's what your friends have been up to</h3>
+            <div ng-model="authmsg"></div>
+            <div ng-repeat="friend in friends">
+                <div class="friend">{{ friend.name }}</div>
+            </div>
+        </div>
     </div>
 </section>
