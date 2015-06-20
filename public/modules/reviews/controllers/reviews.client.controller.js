@@ -72,12 +72,18 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
         //jQuery Magic
         $(document).ready(function(){
             var isClicked = false;
+            var isClickedBack = false;
             
             $('div.col-md-3 > div.controls > div.glyphicon').click(function(){
                 console.log($(this).next().hasClass('glyphicon-star'));
-                if($(this).next().hasClass('glyphicon-star')){
-                    $(this).next().removeClass('glyphicon-star');
-                    $(this).next().addClass('glyphicon-star-empty');
+                
+                var currElement = $(this).next();
+                while(currElement.hasClass('glyphicon-star')){
+                    currElement.removeClass('glyphicon-star');
+                    currElement.addClass('glyphicon-star-empty');
+                    currElement = currElement.next();
+                    
+                    isClickedBack = true;
                 }
                 
                 //add the first one
@@ -113,6 +119,10 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 
                     $(this).prevAll().addClass('glyphicon-star-empty');
                     $(this).prevAll().removeClass('glyphicon-star');
+                }
+                
+                if(isClickedBack){
+                    //get all the elements
                 }
             });
         });
