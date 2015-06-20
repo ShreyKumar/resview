@@ -1,6 +1,6 @@
 <section data-ng-controller="ReviewsController">
     <div class="page-header">
-        <h1>New Review</h1>
+        <h1>New Review for {{ residence }}</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -16,23 +16,57 @@
                         <input type="text" data-ng-model="comments" id="comments" class="form-control" placeholder="Your comments" required>
                     </div>
                     
-                    <label class="control-label" for="foodquality">Food quality</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="foodquality" id="foodquality" class="form-control" required>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" for="foodquality">Food quality</label>
+                        </div>
+                        <div class="col-md-3" class="stars">
+                            <div class="controls">
+                                <input type="hidden" data-ng-model="foodquality" id="foodquality" class="form-control" required>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <label class="control-label" for="convinience">Convinience</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="convinience" id="convinience" class="form-control" required>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" for="convinience">Convinience</label>
+                        </div>
+                        <div class="col-md-3" class="stars">
+                            <div class="controls">
+                                <input type="hidden" data-ng-model="convinience" id="convinience" class="form-control" required>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <label class="control-label" for="overallexp">Overall experience</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="overallexp" id="overallexp" class="form-control" required>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" for="overallexp">Overall experience</label>
+                        </div>
+                        <div class="col-md-3" class="stars">
+                            <div class="controls">
+                                <input type="hidden" data-ng-model="overallexp" id="overallexp" class="form-control" required>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                                <div class="glyphicon glyphicon-star"></div>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <input type="submit" class="btn btn-lg btn-dark">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
