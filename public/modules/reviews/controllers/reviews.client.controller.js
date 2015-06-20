@@ -67,5 +67,25 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 				reviewId: $stateParams.reviewId
 			});
 		};
+        
+        //jQuery Magic
+        $(document).ready(function(){
+            $('div.col-md-3 > div.controls > div.glyphicon').mouseenter(function(){
+                //star's current index
+                var curr = $(this).index('div.col-md-3 > div.controls > div.glyphicon.glyphicon-star-empty');
+                //console.log(curr);
+                for(var i = curr; i != -1; i--){
+                    
+                }
+                
+                $(this).removeClass('glyphicon-star-empty');
+                $(this).addClass('glyphicon-star');
+            });
+            
+            $('div.col-md-3 > div.controls > div.glyphicon').mouseleave(function(){
+                $(this).removeClass('glyphicon-star');
+                $(this).addClass('glyphicon-star-empty');
+            });
+        });
 	}
 ]);
