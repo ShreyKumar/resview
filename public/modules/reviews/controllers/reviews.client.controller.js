@@ -70,21 +70,36 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
         
         //jQuery Magic
         $(document).ready(function(){
-            $('div.col-md-3 > div.controls > div.glyphicon').mouseenter(function(){
-                //star's current index
-                var curr = $(this).index('div.col-md-3 > div.controls > div.glyphicon.glyphicon-star-empty');
-                //console.log(curr);
-                for(var i = curr; i != -1; i--){
-                    
-                }
+            var curr;
+            $('div#food > div.controls > div.glyphicon').mouseenter(function(){
+                //take other elements
+                curr = $(this).index('div#food > div.controls > div.glyphicon.glyphicon-star-empty') + 2;
+                var selector = 'div#food > div.controls > div.glyphicon:nth-child(' + curr + ')';
+                console.log(selector);
                 
+                //add stars
+                $(selector).prevAll().removeClass('glyphicon-star-empty');
+                $(selector).prevAll().addClass('glyphicon-star');
+                
+                //add the first one
                 $(this).removeClass('glyphicon-star-empty');
                 $(this).addClass('glyphicon-star');
             });
             
-            $('div.col-md-3 > div.controls > div.glyphicon').mouseleave(function(){
-                $(this).removeClass('glyphicon-star');
+            $('div#food > div.controls > div.glyphicon').mouseleave(function(){
+                //take other elements
+                curr = $(this).index('div#food > div.controls > div.glyphicon.glyphicon-star-empty') + 7;
+                var selector = 'div#food > div.controls > div.glyphicon.glyphicon-star-empty:nth-child(' + curr + ')';
+                console.log(selector);
+                
+                //add stars
+                console.log($(selector).prevAll().length);
+                $(selector).prevAll().addClass('glyphicon-star-empty');
+                $(selector).prevAll().removeClass('glyphicon-star');
+                
+                //add the first one
                 $(this).addClass('glyphicon-star-empty');
+                $(this).removeClass('glyphicon-star');
             });
         });
 	}
