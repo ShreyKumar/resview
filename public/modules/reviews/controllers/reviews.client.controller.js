@@ -68,39 +68,44 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 			});
 		};
         
+        
         //jQuery Magic
         $(document).ready(function(){
-            var curr;
-            $('div#food > div.controls > div.glyphicon').mouseenter(function(){
-                //take other elements
-                curr = $(this).index('div#food > div.controls > div.glyphicon.glyphicon-star-empty') + 2;
-                var selector = 'div#food > div.controls > div.glyphicon:nth-child(' + curr + ')';
-                console.log(selector);
-                
-                //add stars
-                $(selector).prevAll().removeClass('glyphicon-star-empty');
-                $(selector).prevAll().addClass('glyphicon-star');
-                
+            $('div.col-md-3 > div.controls > div.glyphicon').click(function(){
                 //add the first one
                 $(this).removeClass('glyphicon-star-empty');
                 $(this).addClass('glyphicon-star');
+                
+                //take the rest out
+                $(this).prevAll().removeClass('glyphicon-star-empty');
+                $(this).prevAll().addClass('glyphicon-star');
+                
+                //remove the mouseout
+                $('section').off('mouseleave', 'div.col-md-3 > div.controls > div.glyphicon', starLeave);
+                
             });
             
-            $('div#food > div.controls > div.glyphicon').mouseleave(function(){
-                //take other elements
-                curr = $(this).index('div#food > div.controls > div.glyphicon.glyphicon-star-empty') + 7;
-                var selector = 'div#food > div.controls > div.glyphicon.glyphicon-star-empty:nth-child(' + curr + ')';
-                console.log(selector);
+            $('div.col-md-3 > div.controls > div.glyphicon').mouseenter(function(){
+                //add the first one
+                $(this).removeClass('glyphicon-star-empty');
+                $(this).addClass('glyphicon-star');
                 
-                //add stars
-                console.log($(selector).prevAll().length);
-                $(selector).prevAll().addClass('glyphicon-star-empty');
-                $(selector).prevAll().removeClass('glyphicon-star');
+                //take the rest out
+                $(this).prevAll().removeClass('glyphicon-star-empty');
+                $(this).prevAll().addClass('glyphicon-star');
                 
+            });
+            
+            $('div.col-md-3 > div.controls > div.glyphicon').mouseleave(function(){
                 //add the first one
                 $(this).addClass('glyphicon-star-empty');
                 $(this).removeClass('glyphicon-star');
+
+                $(this).prevAll().addClass('glyphicon-star-empty');
+                $(this).prevAll().removeClass('glyphicon-star');
             });
+            
         });
+        
 	}
 ]);
