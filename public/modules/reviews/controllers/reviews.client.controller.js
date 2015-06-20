@@ -71,7 +71,15 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
         
         //jQuery Magic
         $(document).ready(function(){
+            var isClicked = false;
+            
             $('div.col-md-3 > div.controls > div.glyphicon').click(function(){
+                console.log($(this).next().hasClass('glyphicon-star'));
+                if($(this).next().hasClass('glyphicon-star')){
+                    $(this).next().removeClass('glyphicon-star');
+                    $(this).next().addClass('glyphicon-star-empty');
+                }
+                
                 //add the first one
                 $(this).removeClass('glyphicon-star-empty');
                 $(this).addClass('glyphicon-star');
@@ -80,8 +88,8 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 $(this).prevAll().removeClass('glyphicon-star-empty');
                 $(this).prevAll().addClass('glyphicon-star');
                 
-                //remove the mouseout
-                $('section').off('mouseleave', 'div.col-md-3 > div.controls > div.glyphicon', starLeave);
+                //turn on isClicked
+                isClicked = true;
                 
             });
             
@@ -94,17 +102,19 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 $(this).prevAll().removeClass('glyphicon-star-empty');
                 $(this).prevAll().addClass('glyphicon-star');
                 
+                isClicked = false;
             });
             
             $('div.col-md-3 > div.controls > div.glyphicon').mouseleave(function(){
-                //add the first one
-                $(this).addClass('glyphicon-star-empty');
-                $(this).removeClass('glyphicon-star');
+                if(!isClicked){
+                    //add the first one
+                    $(this).addClass('glyphicon-star-empty');
+                    $(this).removeClass('glyphicon-star');
 
-                $(this).prevAll().addClass('glyphicon-star-empty');
-                $(this).prevAll().removeClass('glyphicon-star');
+                    $(this).prevAll().addClass('glyphicon-star-empty');
+                    $(this).prevAll().removeClass('glyphicon-star');
+                }
             });
-            
         });
         
 	}
