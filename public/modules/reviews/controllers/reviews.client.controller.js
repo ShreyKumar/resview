@@ -125,8 +125,35 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 }
             });
             
+            $("#view").addClass('active');
+            $("#write").removeClass('active');
+            
+            $("#write").unbind().click(function(){
+                //change navs
+                $("#view").removeClass('active');
+                $("#write").addClass('active');
+                
+                $("#writereview").show();
+                $("#seereviews").hide();
+            });
+            
+            $("#view").unbind().click(function(){
+                //change navs
+                $("#view").addClass('active');
+                $("#write").removeClass('active');
+                
+                $("#writereview").hide();
+                $("#seereviews").show();
+                
+            });
+            
         });
         
+        /*
+        $scope.write = function(){
+            console.log('hello');
+        }
+        */
         
 	}
 ]);
