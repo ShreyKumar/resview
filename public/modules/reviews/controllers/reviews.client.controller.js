@@ -75,12 +75,11 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
             var isClickedBack = false;
             
             $('div.col-md-3 > div.controls > div.glyphicon').click(function(){
-                console.log($(this).next().hasClass('glyphicon-star'));
-                
                 var currElement = $(this).next();
                 while(currElement.hasClass('glyphicon-star')){
                     currElement.removeClass('glyphicon-star');
                     currElement.addClass('glyphicon-star-empty');
+                    currElement.removeClass('isClicked');
                     currElement = currElement.next();
                     
                     isClickedBack = true;
@@ -89,10 +88,12 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 //add the first one
                 $(this).removeClass('glyphicon-star-empty');
                 $(this).addClass('glyphicon-star');
+                $(this).addClass('isClicked');
                 
                 //take the rest out
                 $(this).prevAll().removeClass('glyphicon-star-empty');
                 $(this).prevAll().addClass('glyphicon-star');
+                $(this).prevAll().addClass('isClicked');
                 
                 //turn on isClicked
                 isClicked = true;
@@ -113,16 +114,14 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
             
             $('div.col-md-3 > div.controls > div.glyphicon').mouseleave(function(){
                 if(!isClicked){
-                    //add the first one
-                    $(this).addClass('glyphicon-star-empty');
-                    $(this).removeClass('glyphicon-star');
+                    if(!$(this).hasClass('isClicked')){
+                        //add the first one
+                        $(this).addClass('glyphicon-star-empty');
+                        $(this).removeClass('glyphicon-star');
+                    }
 
-                    $(this).prevAll().addClass('glyphicon-star-empty');
-                    $(this).prevAll().removeClass('glyphicon-star');
-                }
-                
-                if(isClickedBack){
-                    //get all the elements
+                    $(this).prevAll(':not(div.isClicked)').addClass('glyphicon-star-empty');
+                    $(this).prevAll(':not(div.isClicked)').removeClass('glyphicon-star');
                 }
             });
         });
