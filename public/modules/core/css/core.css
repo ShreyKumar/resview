@@ -95,3 +95,11 @@ div#map-canvas {
     width: 100%;
     height: 500px;
 }
+
+/* Edit details */
+div.details, div.details > h5 {
+    font-size: 20px;
+}
+div.details > span {
+    margin-right: 5px;
+}
