@@ -62,3 +62,30 @@ video#bgvid {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
 }
+
+/* Residences */
+
+/* Tabbar*/
+div#tabbar {
+    border-bottom: #eee 1px ridge;
+}
+div#tabbar > div.tab:nth-child(1) {
+    border-right: #eee 1px ridge;
+}
+div#tabbar > div.tab {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+div#tabbar > div.tab > a {
+    display: block;
+    width: 100%;
+    border-radius: 0px;
+}
+div#tabbar > div.tab > a:hover {
+    background-color: black;
+    color: white;
+}
+.active {
+    background-color: black;
+    color: white;
+}

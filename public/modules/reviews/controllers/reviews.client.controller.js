@@ -124,7 +124,9 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     $(this).prevAll(':not(div.isClicked)').removeClass('glyphicon-star');
                 }
             });
+            
         });
+        
         
 	}
 ]);

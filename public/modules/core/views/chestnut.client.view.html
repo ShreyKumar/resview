@@ -1,5 +1,18 @@
 <section class="row content bg chestnut" data-ng-controller="ReviewsController">
-    <div class="main container">
-        <div data-ng-include="'modules/reviews/views/create-review.client.view.html'"></div>
+    <div class="main container" style="padding-top: 0%">
+        <div id="tabbar" class="row">
+            <div class="tab col-md-6 text-center">
+                <a href="#" class="btn btn-lg" id="view">View all Reviews</a>
+            </div>
+            <div class="tab col-md-6 text-center">
+                <a href="#" class="btn btn-lg" id="write">Write a Review</a>
+            </div>
+        </div>
+        <div id="writereview">
+            <div data-ng-include="'modules/reviews/views/create-review.client.view.html'"></div>
+        </div>
+        <div id="seereviews">
+            <div data-ng-include="'modules/reviews/views/list-reviews.client.view.html'"></div>
+        </div>
     </div>
 </section>

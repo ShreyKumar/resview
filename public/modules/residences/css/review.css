@@ -1,0 +1,4 @@
+div#tabbar > div.tab > a {
+    display: block;
+    width: 100%;
+}

@@ -1,19 +1,19 @@
 <section data-ng-controller="ReviewsController">
     <div class="page-header">
-        <h1>New Review for {{ residence }}</h1>
+        <h1>Write a Review for {{ residence }}</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="name"></label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
                     </div>
                     
-                    <label class="control-label" for="comments">Comments</label>
+                    <label class="control-label" for="comments"></label>
                     <div class="controls">
-                        <input type="text" data-ng-model="comments" id="comments" class="form-control" placeholder="Your comments" required>
+                        <textarea rows="7" cols="30" data-ng-model="comments" id="comments" class="form-control" placeholder="Describe your experience here... Make this as long as you want but no less than 20 words" required></textarea>
                     </div>
                     
                     <div class="row">
