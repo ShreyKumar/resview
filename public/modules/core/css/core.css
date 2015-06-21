@@ -89,3 +89,9 @@ div#tabbar > div.tab > a:hover {
     background-color: black;
     color: white;
 }
+
+/* MAP stuff */
+div#map-canvas {
+    width: 100%;
+    height: 500px;
+}

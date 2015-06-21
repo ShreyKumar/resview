@@ -1,4 +1,23 @@
 <section class="row content bg chestnut" data-ng-controller="ReviewsController">
+    <leaflet style="height: 300px; width: 300px"></leaflet>
+    <!-- Information -->
+    <div class="main contianer" style="background-color: rgba(255, 255, 255, 0.7); opacity: 1">
+        <h2 class="text-center">Chestnut Residence</h2>
+        <div class="row container">
+            <div class="col-md-6">
+                <h5>Address:</h5>
+                <h5>89 Chestnut Street,</h5>
+                <h5>Toronto, ON</h5>
+                <h5>M5G 1R1</h5>
+            </div>
+            <!-- MAP here -->
+            <div class="col-md-6">
+                <div id="map-canvas"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reviews -->
     <div class="main container" style="padding-top: 0%">
         <div id="tabbar" class="row">
             <div class="tab col-md-6 text-center">
