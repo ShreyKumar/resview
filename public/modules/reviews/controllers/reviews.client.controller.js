@@ -6,6 +6,7 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 		$scope.authentication = Authentication;
         $scope.residence = "Chestnut Residence";
 
+        /*
 		// Create new Review
 		$scope.create = function() {
 			// Create new Review object
@@ -27,6 +28,7 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 				$scope.error = errorResponse.data.message;
 			});
 		};
+        */
 
 		// Remove existing Review
 		$scope.remove = function(review) {
@@ -146,6 +148,16 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 $("#writereview").hide();
                 $("#seereviews").show();
                 
+            });
+            
+            //Form validation
+            $("input#submit").click(function(){
+                if(!$('div#exp').hasClass('isClicked')){
+                    $('div#exp').wrapAll('<div class="error" />');
+                    $('div#errormsg').html('<h3>Overall Experience is required.</h3>');
+                } else {
+                    //here comes the animation   
+                }
             });
             
         });
