@@ -108,3 +108,21 @@ div.details, div.details > h5 {
 div.details > span {
     margin-right: 5px;
 }
+
+/* Preview styling */
+div#preview {
+    
+}
+
+div#previewcontent {
+    background-color: black;
+    color: white;
+    padding-left: 3%;
+    padding-bottom: 2%;
+    width: 100%;
+}
+a#headclick {
+    text-decoration: none; 
+    display: block; 
+    color: white;
+}

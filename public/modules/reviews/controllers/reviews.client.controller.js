@@ -5,7 +5,6 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Reviews) {
 		$scope.authentication = Authentication;
         $scope.residence = "Chestnut Residence";
-
         /*
 		// Create new Review
 		$scope.create = function() {
@@ -150,13 +149,47 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                 
             });
             
+            //main div fix
+            $('section').css("background-color", "white");
+            $('section > div.col-md-12').css("background-color", "white");
+            
+            //hide preview initially
+            $("#preview").hide();
+            
             //Form validation
             $("input#submit").click(function(){
-                if(!$('div#exp').hasClass('isClicked')){
+                if(!$('div#exp > div.col-md-3 > div.controls').children('div.glyphicon').hasClass('isClicked')){
                     $('div#exp').wrapAll('<div class="error" />');
-                    $('div#errormsg').html('<h3>Overall Experience is required.</h3>');
+                    $('div#errormsg').html('<h4>Overall Experience is required.</h4>');
                 } else {
-                    //here comes the animation   
+                    //here comes the animation
+                    $('#writereview').fadeOut();
+                    
+                    //load up the content
+                    console.log($("#title").val());
+                    if($("#title").val() != ""){
+                        $("#headline").html("<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" + $("#title").val() + "</a></h3>" + 
+                                            "<div class='row container' id='more'></div>" + 
+                                            "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>");
+                        
+                        
+                        //initially hide more
+                        $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
+                        $("div#more").hide();
+                        
+                        var down = false;
+                        $("a#headclick").click(function(){
+                            if(down){
+                                $("div#more").slideUp();
+                                down = false;
+                            } else {
+                                $("div#more").slideDown();
+                                down = true;
+                            }
+                        });
+                    }
+                    
+                    $("#preview").fadeIn(4500);
                 }
             });
             

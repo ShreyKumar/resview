@@ -68,6 +68,33 @@
         <div id="writereview">
             <div data-ng-include="'modules/reviews/views/create-review.client.view.html'"></div>
         </div>
+        <div id="preview">
+            <h3>Heres how your review will look like</h3>
+            <div id="previewcontent" class="container">
+                <div class="name row">
+                    <h3>
+                        {{ authentication.user.displayName }}
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                    </h3>
+                </div>
+                <div class="row" id="headline"></div>
+            </div>
+            <div class="row container" style="padding-top: 2%">
+                <div class="col-md-6">
+                    <a class="btn btn-lg btn-dark"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
+                </div>
+                <div class="col-md-6 text-right" style="padding-right: 2%">    
+                    <a class="btn btn-lg btn-dark">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
+                </div>
+            </div>
+        </div>
+        <!--
+        -->
+        
         <div id="seereviews">
             <div data-ng-include="'modules/reviews/views/list-reviews.client.view.html'"></div>
         </div>
