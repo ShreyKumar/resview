@@ -195,6 +195,23 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
             
         });
         
+        $(document).ready(function(){
+            //Edit function
+            $("a#edit").unbind().click(function(){
+                $("#preview").fadeOut(4500);
+                $("#writereview").fadeIn(4500);
+                
+                //put details back
+                $("textarea").html($("#comments").val());
+                $("#title").html($("#title").val());
+            });
+            
+            $("a#perfect").unbind().click(function(){
+                console.log($("#previewcontent").width());
+            });
+             
+        });
+        
         function initialize() {
             //load grayscale style
             var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]

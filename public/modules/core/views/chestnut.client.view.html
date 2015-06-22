@@ -3,7 +3,7 @@
     <!-- Information -->
     <div class="main contianer map-main" style="background-color: rgba(255, 255, 255, 0.7); opacity: 1">
         <h2 class="text-center">Chestnut Residence</h2>
-        <div class="row container">
+        <div class="row container" style="width: 100%">
             <div class="col-md-6 details">
                 <span class="glyphicon glyphicon-phone-alt"></span>   
                 Front Desk: 416-977-0707<br>
@@ -61,7 +61,7 @@
             <div class="tab col-md-6 text-center">
                 <a class="btn btn-lg" id="view">View all Reviews</a>
             </div>
-            <div class="tab col-md-6 text-center" ng-click="write()">
+            <div class="tab col-md-6 text-center">
                 <a class="btn btn-lg" id="write">Write a Review</a>
             </div>
         </div>
@@ -83,12 +83,12 @@
                 </div>
                 <div class="row" id="headline"></div>
             </div>
-            <div class="row container" style="padding-top: 2%">
+            <div class="row container" style="padding-top: 2%; width: 100%">
                 <div class="col-md-6">
-                    <a class="btn btn-lg btn-dark"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
+                    <a class="btn btn-lg btn-dark" id="edit"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
                 </div>
                 <div class="col-md-6 text-right" style="padding-right: 2%">    
-                    <a class="btn btn-lg btn-dark">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
+                    <a class="btn btn-lg btn-dark" id="perfect">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
                 </div>
             </div>
         </div>
