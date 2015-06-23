@@ -166,6 +166,29 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     $('#writereview').fadeOut();
                     
                     //load up the content
+                    var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
+                        $("#title").val() + "</a></h3>" + 
+                        "<div class='row container' id='more'></div>" + 
+                        "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
+                        
+                    $("#headline").html();
+                        
+                        
+                    //initially hide more
+                    $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
+                    $("div#more").hide();
+                        
+                    var down = false;
+                    $("a#headclick").click(function(){
+                        if(down){
+                            $("div#more").slideUp();
+                            down = false;
+                        } else {
+                            $("div#more").slideDown();
+                            down = true;
+                        }
+                    });
+                    
                     
                     //count up all stars
                     var donstars = $("div#don div.controls div.isClicked").length;
@@ -191,31 +214,24 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     
                     /**************** LOAD UP DON STARS ****************/
                     if(donstars != 0){
-                        $("")
+                        var stars = 
+                        "<div id='donstars'>" + 
+                            "<div class='row'>" + 
+                                "<div class='col-md-6'>" + 
+                                    "Don" +
+                                "</div>" +
+                                "<div class='col-md-6'>" + 
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                "</div>" + 
+                            "</div>" +
+                        "</div>";
+                                    
+                        $("div#more").append(stars);
                     }
-                        
-                    var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
-                        $("#title").val() + "</a></h3>" + 
-                        "<div class='row container' id='more'></div>" + 
-                        "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
-                        
-                    $("#headline").html();
-                        
-                        
-                    //initially hide more
-                    $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
-                    $("div#more").hide();
-                        
-                    var down = false;
-                    $("a#headclick").click(function(){
-                        if(down){
-                            $("div#more").slideUp();
-                            down = false;
-                        } else {
-                            $("div#more").slideDown();
-                            down = true;
-                        }
-                    });
                 }
                     
                 $("#preview").fadeIn(4500);
