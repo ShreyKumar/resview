@@ -127,3 +127,6 @@ div.edit-btn {
     width: 100%;
     padding-top: 2%;
 }
+div#stars {
+    font-size: 20px;   
+}

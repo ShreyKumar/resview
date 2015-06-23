@@ -208,7 +208,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         "<div class='row container' id='more'></div>" + 
                         "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
                         
-                    $("#headline").html();
+                    $("#headline").html(preview);
                         
                         
                     //initially hide more
@@ -249,11 +249,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         i++;
                     }
                     
-                    console.log(donstars);
+                    
                     /**************** LOAD UP DON STARS ****************/
                     if(donstars != 0){
+                        
                         var stars = 
-                        "<div id='donstars'>" + 
                             "<div class='row'>" + 
                                 "<div class='col-md-6'>" + 
                                     "Don" +
@@ -265,14 +265,86 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                     "<div class='glyphicon glyphicon-star-empty'></div>" +
                                     "<div class='glyphicon glyphicon-star-empty'></div>" +
                                 "</div>" + 
-                            "</div>" +
-                        "</div>";
-                        if($("div#stars")){
-                            $("div#stars").append(stars); 
-                        } else {
-                            console.log('nooooo');   
+                            "</div>";
+                        
+                        $("div#stars div#donstars").html("");
+                        $("div#stars div#donstars").append(stars);
+                        
+                        //Color stars
+                        var i = 0
+                        var element = $("div#stars div#donstars div.row div.col-md-6").children().first();
+                        while(i < donstars){
+                            element.removeClass('glyphicon-star-empty');
+                            element.addClass('glyphicon-star');
+
+                            element = element.next();
+                            i++;
                         }
+                        
                     }
+                    /********* LOAD UP FOOD STARS ********/
+                    if(foodstars != 0){
+                        var stars = 
+                            "<div class='row'>" + 
+                                "<div class='col-md-6'>" + 
+                                    "Food Quality" +
+                                "</div>" +
+                                "<div class='col-md-6'>" + 
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                "</div>" + 
+                            "</div>";
+                        
+                        $("div#stars div#foodstars").html("");
+                        $("div#stars div#foodstars").append(stars);
+                        
+                        //Color stars
+                        var i = 0
+                        var element = $("div#stars div#foodstars div.row div.col-md-6").children().first();
+                        while(i < foodstars){
+                            element.removeClass('glyphicon-star-empty');
+                            element.addClass('glyphicon-star');
+
+                            element = element.next();
+                            i++;
+                        }
+                        
+                    }
+                    
+                    if(convstars != 0){
+                        var stars = 
+                            "<div class='row'>" + 
+                                "<div class='col-md-6'>" + 
+                                    "Convinience" +
+                                "</div>" +
+                                "<div class='col-md-6'>" + 
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                    "<div class='glyphicon glyphicon-star-empty'></div>" +
+                                "</div>" + 
+                            "</div>";
+                        
+                        $("div#stars div#convstars").html("");
+                        $("div#stars div#convstars").append(stars);
+                        
+                        //Color stars
+                        var i = 0
+                        var element = $("div#stars div#convstars div.row div.col-md-6").children().first();
+                        while(i < convstars){
+                            element.removeClass('glyphicon-star-empty');
+                            element.addClass('glyphicon-star');
+
+                            element = element.next();
+                            i++;
+                        }
+                        
+                    }
+                    
                 }
                     
                 $("#preview").fadeIn(4500);
