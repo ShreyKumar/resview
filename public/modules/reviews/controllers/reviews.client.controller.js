@@ -174,6 +174,10 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     var convstars = $("div#conv div.controls div.isClicked").length;
                     
                     if(expstars != 0){
+                        //clear entire stars
+                        $("div#previewcontent div.name.row h3").children().removeClass('glyphicon-star');
+                        $("div#previewcontent div.name.row h3").children().addClass('glyphicon-star-empty');
+                        
                         //go through every star and color it in
                         var i = 0
                         var element = $("div#previewcontent div.name.row h3").children().first();
