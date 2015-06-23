@@ -28,8 +28,10 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
                 'http://code.jquery.com/jquery-2.1.4.min.js',
                 'public/lib/js/form.js',
+                
+                //google maps
                 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCJYOIlObkjUFT4-oGT33mQTjEoJIiTvdE',
-                'http://www.skypeassets.com/i/scom/js/skype-uri.js'
+                'public/modules/core/js/map.js'
                 /*
                 'public/lib/js/backstretch.min.js',
                 'public/lib/js/counter.js',
