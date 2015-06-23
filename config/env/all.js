@@ -21,17 +21,17 @@ module.exports = {
                 'public/lib/css/form.css'
 			],
 			js: [
+                //google maps
+                'https://maps.googleapis.com/maps/api/js?key=AIzaSyCJYOIlObkjUFT4-oGT33mQTjEoJIiTvdE',
+                'public/modules/core/js/map.js',
 				'public/lib/angular/angular.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
                 'http://code.jquery.com/jquery-2.1.4.min.js',
-                'public/lib/js/form.js',
+                'public/lib/js/form.js'
                 
-                //google maps
-                'https://maps.googleapis.com/maps/api/js?key=AIzaSyCJYOIlObkjUFT4-oGT33mQTjEoJIiTvdE',
-                'public/modules/core/js/map.js'
                 /*
                 'public/lib/js/backstretch.min.js',
                 'public/lib/js/counter.js',
