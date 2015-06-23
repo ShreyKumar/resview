@@ -110,10 +110,6 @@ div.details > span {
 }
 
 /* Preview styling */
-div#preview {
-    
-}
-
 div#previewcontent {
     background-color: black;
     color: white;
@@ -125,4 +121,9 @@ a#headclick {
     text-decoration: none; 
     display: block; 
     color: white;
+}
+/* Button fix */
+div.edit-btn {
+    width: 100%;
+    padding-top: 2%;
 }

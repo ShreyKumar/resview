@@ -173,22 +173,25 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     var expstars = $("div#exp div.controls div.isClicked").length;
                     var convstars = $("div#conv div.controls div.isClicked").length;
                     
-                    if(expstars != 0){
-                        //clear entire stars
-                        $("div#previewcontent div.name.row h3").children().removeClass('glyphicon-star');
-                        $("div#previewcontent div.name.row h3").children().addClass('glyphicon-star-empty');
-                        
-                        //go through every star and color it in
-                        var i = 0
-                        var element = $("div#previewcontent div.name.row h3").children().first();
-                        while(i < expstars){
-                            element.removeClass('glyphicon-star-empty');
-                            element.addClass('glyphicon-star');
+                    /*************** LOAD UP EXP STARS ****************/
+                    //clear entire stars
+                    $("div#previewcontent div.name.row h3").children().removeClass('glyphicon-star');
+                    $("div#previewcontent div.name.row h3").children().addClass('glyphicon-star-empty');
+                    
+                    //go through every star and color it in
+                    var i = 0
+                    var element = $("div#previewcontent div.name.row h3").children().first();
+                    while(i < expstars){
+                        element.removeClass('glyphicon-star-empty');
+                        element.addClass('glyphicon-star');
                             
-                            element = element.next();
-                            i++;
-                        }
-                        
+                        element = element.next();
+                        i++;
+                    }
+                    
+                    /**************** LOAD UP DON STARS ****************/
+                    if(donstars != 0){
+                        $("")
                     }
                         
                     var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
