@@ -194,7 +194,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
             $("#preview").hide();
             
             //Form validation
-            $("input#submit").click(function(){
+            $("input#submit").unbind().click(function(){
                 if(!$('div#exp > div.col-md-3 > div.controls').children('div.glyphicon').hasClass('isClicked')){
                     $('div#exp').wrapAll('<div class="error" />');
                     $('div#errormsg').html('<h4>Overall Experience is required.</h4>');
@@ -249,6 +249,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         i++;
                     }
                     
+                    console.log(donstars);
                     /**************** LOAD UP DON STARS ****************/
                     if(donstars != 0){
                         var stars = 
@@ -266,8 +267,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                 "</div>" + 
                             "</div>" +
                         "</div>";
-                                    
-                        $("div#more").append(stars);
+                        if($("div#stars")){
+                            $("div#stars").append(stars); 
+                        } else {
+                            console.log('nooooo');   
+                        }
                     }
                 }
                     
