@@ -166,31 +166,52 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
                     $('#writereview').fadeOut();
                     
                     //load up the content
-                    console.log($("#title").val());
-                    if($("#title").val() != ""){
-                        $("#headline").html("<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" + $("#title").val() + "</a></h3>" + 
-                                            "<div class='row container' id='more'></div>" + 
-                                            "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>");
-                        
-                        
-                        //initially hide more
-                        $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
-                        $("div#more").hide();
-                        
-                        var down = false;
-                        $("a#headclick").click(function(){
-                            if(down){
-                                $("div#more").slideUp();
-                                down = false;
-                            } else {
-                                $("div#more").slideDown();
-                                down = true;
-                            }
-                        });
-                    }
                     
-                    $("#preview").fadeIn(4500);
+                    //count up all stars
+                    var donstars = $("div#don div.controls div.isClicked").length;
+                    var foodstars = $("div#food div.controls div.isClicked").length;
+                    var expstars = $("div#exp div.controls div.isClicked").length;
+                    var convstars = $("div#conv div.controls div.isClicked").length;
+                    
+                    if(expstars != 0){
+                        //go through every star and color it in
+                        var i = 0
+                        var element = $("div#previewcontent div.name.row h3").children().first();
+                        while(i < expstars){
+                            element.removeClass('glyphicon-star-empty');
+                            element.addClass('glyphicon-star');
+                            
+                            element = element.next();
+                            i++;
+                        }
+                        
+                    }
+                        
+                    var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
+                        $("#title").val() + "</a></h3>" + 
+                        "<div class='row container' id='more'></div>" + 
+                        "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
+                        
+                    $("#headline").html();
+                        
+                        
+                    //initially hide more
+                    $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
+                    $("div#more").hide();
+                        
+                    var down = false;
+                    $("a#headclick").click(function(){
+                        if(down){
+                            $("div#more").slideUp();
+                            down = false;
+                        } else {
+                            $("div#more").slideDown();
+                            down = true;
+                        }
+                    });
                 }
+                    
+                $("#preview").fadeIn(4500);
             });
             
         });
@@ -252,24 +273,5 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$statePara
 
         google.maps.event.addDomListener(window, 'load', initialize);
         
-        
-            /*
-        function initialize() {
-            var res = new google.maps.LatLng(43.6542904, -79.3854518);
-            var mapOptions = {
-              center: res,
-              zoom: 18
-            };
-            
-            var marker = new google.maps.Marker({
-                position: res,
-                map: map,
-                title: 'Hello World!'
-            });
-            
-            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-        */
 	}
 ]);
