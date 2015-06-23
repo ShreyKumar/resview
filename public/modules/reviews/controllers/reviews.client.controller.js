@@ -364,7 +364,28 @@ google.maps.event.addDomListener(window, 'load', initialize);
             });
             
             $("a#perfect").unbind().click(function(){
-                console.log($("#previewcontent").width());
+                var width = $("#previewcontent").width();
+                var height = $("#previewcontent").height();
+                
+                //make it absolute
+                $("#previewcontent").css("position", "absolute");
+                $("#previewcontent").css("width", width);
+                $("#previewcontent").css("height", height);
+                $("#previewcontent").wrapAll("<div class='container' />");
+                $("a#edit").css("margin-top", "32%");
+                
+                //pull it up
+                //$("#previewcontent").animate({
+                  //  marginTop: "-38%"
+                //});
+                
+                //display the write content
+                $("#writereview").show();
+                var copy = $("#previewcontent").children().first();
+                console.log(copy.val());
+                //$(copy.val()).insertAfter("#preview");
+                //$("#preview").html("");
+                //$("#preview").hide();
             });
              
         });
