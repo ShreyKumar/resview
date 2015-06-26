@@ -195,19 +195,30 @@ google.maps.event.addDomListener(window, 'load', initialize);
             
             //Form validation
             $("input#submit").unbind().click(function(){
+                console.log('clicked');
                 if(!$('div#exp > div.col-md-3 > div.controls').children('div.glyphicon').hasClass('isClicked')){
+                    $("div#errormsg").html("");
                     $('div#exp').wrapAll('<div class="error" />');
-                    $('div#errormsg').html('<h4>Overall Experience is required.</h4>');
+                    $('div#errormsg').append('<h4>Overall Experience is required.</h4>');
+                } else if($("#building-value").val() == 'none'){
+                    $("div#errormsg").html("");
+                    $('div#building').wrapAll('<div class="error" />');
+                    $('div#errormsg').append('<h4>Building is required</h4>');
                 } else {
+                    if($("select").val() == 'chestnut'){
+                       $('#insertbuilding').html("Chestnut Residence"); 
+                    }
                     //here comes the animation
                     $('#writereview').fadeOut();
                     
-                    //load up the content
-                    var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
-                        $("#title").val() + "</a></h3>" + 
-                        "<div class='row container' id='more'></div>" + 
-                        "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
-                        
+                    if($("#title").val() != ""){
+                        //load up the content
+                        var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
+                            $("#title").val() + "</a></h3>" + 
+                            "<div class='row container' id='more'></div>" + 
+                            "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
+
+                    }
                     $("#headline").html(preview);
                         
                         
@@ -240,7 +251,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     
                     //go through every star and color it in
                     var i = 0
-                    var element = $("div#previewcontent div.name.row h3").children().first();
+                    var element = $("div#previewcontent div.name.row h3 div.col-md-4#main-stars").children().first();
+                    console.log(expstars);
                     while(i < expstars){
                         element.removeClass('glyphicon-star-empty');
                         element.addClass('glyphicon-star');
@@ -344,10 +356,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         }
                         
                     }
+                    $("#preview").fadeIn(4500);
                     
                 }
-                    
-                $("#preview").fadeIn(4500);
             });
             
         });
