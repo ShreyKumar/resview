@@ -380,23 +380,31 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 
                 //make it absolute
                 $("#previewcontent").css("position", "absolute");
-                $("#previewcontent").css("width", width);
-                $("#previewcontent").css("height", height);
+                $("#previewcontent").css("width", width + 2);
+                $("#previewcontent").css("height", height + 15);
+                $("#previewcontent").css("margin", "1%");
                 $("#previewcontent").wrapAll("<div class='container' />");
-                $("a#edit").css("margin-top", "32%");
+                $("div.edit-btn").hide();
                 
-                //pull it up
-                //$("#previewcontent").animate({
-                  //  marginTop: "-38%"
-                //});
-                
-                //display the write content
+                $("#previewcontent").animate({
+                    marginTop: '-46%'
+                });
+                $("#preview > h3, #preview > p").hide();
                 $("#writereview").show();
-                var copy = $("#previewcontent").children().first();
-                console.log(copy.val());
-                //$(copy.val()).insertAfter("#preview");
-                //$("#preview").html("");
-                //$("#preview").hide();
+                
+                //reset everything in write review
+                $("#newreview").trigger("reset");
+                
+                var donstars = $("div#don div.controls div.isClicked").length;
+                var foodstars = $("div#food div.controls div.isClicked").length;
+                var expstars = $("div#exp div.controls div.isClicked").length;
+                var convstars = $("div#conv div.controls div.isClicked").length;
+                
+                console.log(donstars);
+                console.log(foodstars);
+                console.log(expstars);
+                console.log(convstars);
+                
             });
              
         });
