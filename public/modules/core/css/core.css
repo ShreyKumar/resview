@@ -130,3 +130,12 @@ div.edit-btn {
 div#stars {
     font-size: 20px;   
 }
+
+/* comment form */
+#thoughts {
+    height: 46px;
+}
+#thoughts > textarea {
+    border: 1px solid #eee;
+    padding-left: 1%;
+}
