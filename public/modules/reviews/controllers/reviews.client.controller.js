@@ -405,6 +405,53 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 console.log(expstars);
                 console.log(convstars);
                 
+                var donstar = $("#don .controls").children("div.isClicked").first();
+                
+                for(var i = 0; i < donstars; i++){
+                    donstar.removeClass("isClicked");
+                    donstar.removeClass("glyphicon-star");
+                    donstar.addClass("glyphicon-star-empty");
+                    
+                    donstar = donstar.next();
+                }
+                
+                var foodstar = $("#food .controls").children("div.isClicked").first();
+                
+                for(var i = 0; i < foodstars; i++){
+                    foodstar.removeClass("isClicked");
+                    foodstar.removeClass("glyphicon-star");
+                    foodstar.addClass("glyphicon-star-empty");
+                    
+                    foodstar = foodstar.next();
+                }
+                
+                var convstar = $("#conv .controls").children("div.isClicked").first();
+                for(var i = 0; i < convstars; i++){
+                    convstar.removeClass("isClicked");
+                    convstar.removeClass("glyphicon-star");
+                    convstar.addClass("glyphicon-star-empty");
+                    
+                    convstar = convstar.next();
+                }
+                
+                var expstar = $("#exp .controls").children("div.isClicked").first();
+                for(var i = 0; i < expstars; i++){
+                    expstar.removeClass("isClicked");
+                    expstar.removeClass("glyphicon-star");
+                    expstar.addClass("glyphicon-star-empty");
+                    
+                    expstar = expstar.next();
+                }
+                
+                //readjust 
+                $("#previewcontent").css("margin-top", "-30%");
+                
+                //change content
+                $("#writereview").delay(4000).hide();
+                $("#seereviews").show();
+                
+                $("#write").delay(4000).removeClass("active");
+                $("#view").addClass("active");
             });
              
         });
