@@ -58,7 +58,7 @@
     </div>
     
     <!-- Reviews -->
-    <div class="main container" style="padding-top: 0%">
+    <div class="main container" style="padding-top: 0%; width: ;">
         <div id="tabbar" class="row">
             <div class="tab col-md-6 text-center">
                 <a class="btn btn-lg" id="view">View all Reviews</a>
@@ -70,58 +70,60 @@
         <div id="writereview">
             <div data-ng-include="'modules/reviews/views/create-review.client.view.html'"></div>
         </div>
-        <div id="preview">
-            <h3>Heres how your review will look like</h3>
-            <p>Click headline to see the description!</p>
-            <div id="previewcontent" class="container">
-                <div class="name row">
-                    <h3>
-                        <div class="col-md-4 text-center">
-                            {{ authentication.user.displayName }}
-                        </div>
-                        <div class="col-md-4 text-center" style="margin-top: -3%">
-                            <div id="insertbuilding"></div>
-                        </div>
-                        <div class="col-md-4 text-center" id="main-stars">
-                            <div class="glyphicon glyphicon-star-empty"></div>
-                            <div class="glyphicon glyphicon-star-empty"></div>
-                            <div class="glyphicon glyphicon-star-empty"></div>
-                            <div class="glyphicon glyphicon-star-empty"></div>
-                            <div class="glyphicon glyphicon-star-empty"></div>
-                        </div>
-                    </h3>
-                </div>
-                <div class="row" id="headline"></div>
-                <div id="stars">
-                    <div id="donstars"></div>
-                    <div id="foodstars"></div>
-                    <div id="convstars"></div>
-                </div>
-                <!-- Agree/Disagree -->
-                <div class="row">
-                    <div id="agreement" class="row col-md-4">
-                        <a class="btn btn-lg btn-light">
-                            <div class="fa fa-thumbs-o-up"></div>
-                            I agree
-                        </a>
-                        <a class="btn btn-lg btn-light">
-                            <div class="fa fa-thumbs-o-down"></div>
-                            I disagree
-                        </a>
+        <div id="preview-outer">
+            <div id="preview">
+                <h3>Heres how your review will look like</h3>
+                <p>Click headline to see the description!</p>
+                <div id="previewcontent" class="container">
+                    <div class="name row">
+                        <h3>
+                            <div class="col-md-4 text-center">
+                                {{ authentication.user.displayName }}
+                            </div>
+                            <div class="col-md-4 text-center" style="margin-top: -3%">
+                                <div id="insertbuilding"></div>
+                            </div>
+                            <div class="col-md-4 text-center" id="main-stars">
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                            </div>
+                        </h3>
                     </div>
-                    <div class="col-md-8" id="thoughts">
-                        <textarea cols="65" rows="2" placeholder="Your thoughts..." id="thoughts-value"></textarea>
+                    <div class="row" id="headline"></div>
+                    <div id="stars">
+                        <div id="donstars"></div>
+                        <div id="foodstars"></div>
+                        <div id="convstars"></div>
+                    </div>
+                    <!-- Agree/Disagree -->
+                    <div class="row">
+                        <div id="agreement" class="row col-md-5">
+                            <a class="btn btn-lg btn-light col-md-6">
+                                <div class="fa fa-thumbs-o-up"></div>
+                                I agree
+                            </a>
+                            <a class="btn btn-lg btn-light col-md-6">
+                                <div class="fa fa-thumbs-o-down"></div>
+                                I disagree
+                            </a>
+                        </div>
+                        <div class="col-md-7" id="thoughts">
+                            <textarea cols="65" rows="2" placeholder="Your thoughts..." id="thoughts-value"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row container edit-btn text-center">
-                <div class="col-md-12">
-                    <a class="btn btn-lg btn-dark" id="edit"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
+                <div class="row container edit-btn text-center">
+                    <div class="col-md-12">
+                        <a class="btn btn-lg btn-dark" id="edit"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row container edit-btn text-center">
-                <div class="col-md-12">
-                    <a class="btn btn-lg btn-dark" id="perfect">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
+                <div class="row container edit-btn text-center">
+                    <div class="col-md-12">
+                        <a class="btn btn-lg btn-dark" id="perfect">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -181,7 +181,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("div#foodstars").html("");
                 $("div#convstars").html("");
                 $("textarea#thoughts-value").html("");
-                $("#preview").hide();
+                $("#preview-outer").hide();
                 
                 $("#writereview").show();
                 $("#seereviews").hide();
@@ -223,6 +223,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     }
                     //here comes the animation
                     $('#writereview').fadeOut();
+                    
+                    //show top and bottom headings too
+                    $("#preview").show();
+                    $("#preview > h3").show();
+                    $("#preview > p").show();
+                    $(".edit-btn").show();
+                    //unwrap container
+                    $("#previewcontent").unwrap("<div class='container' />");
+                    
+                    $("#preview-outer > h3, #preview-outer > p").show();
+                    
+                    //remove preview settings
+                    //$("#previewcontent").parent().css("width", "100%");
+                    $("#previewcontent").css("margin", "");
+                    $("#previewcontent").css("height", "auto");
+                    $("#previewcontent").css("margin-left", "0px");
+                    $("#previewcontent").css("margin-right", "0px");
+                    $("#previewcontent").css("position", "relative");
                     
                     if($("#title").val() != ""){
                         //load up the content
@@ -369,7 +387,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         }
                         
                     }
-                    $("#preview").fadeIn(4500);
+                    $("div#preview-outer").fadeIn(4500);
+                    $("div#preview-outer").show();
                     
                 }
             });
@@ -379,7 +398,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         $(document).ready(function(){
             //Edit function
             $("a#edit").unbind().click(function(){
-                $("#preview").fadeOut(4500);
+                $("#preview-outer").fadeOut(4500);
                 $("#writereview").fadeIn(4500);
                 
                 //put details back
@@ -394,17 +413,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 //make it absolute
                 $("#previewcontent").css("position", "absolute");
                 $("#previewcontent").css("width", width + 2);
-                $("#previewcontent").css("height", height + 15);
+                $("#previewcontent").css("height", "auto");
                 $("#previewcontent").css("margin", "1%");
                 $("#previewcontent").wrapAll("<div class='container' />");
                 $("div.edit-btn").hide();
                 
+                /*
                 $("#previewcontent").animate({
                     marginTop: '-46%'
                 }, {
                     duration: 2000
                 });
-                $("#preview > h3, #preview > p").hide();
+                */
+                $("#preview-outer > div#preview > h3, #preview-outer > div#preview > p").hide();
                 $("#writereview").show();
                 
                 //reset everything in write review
@@ -465,8 +486,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("#writereview").delay(2000).hide(0);
                 $("#seereviews").delay(2000).show(0);
                 
+                $("#preview-outer > h3, #preview-outer > p").hide();
+                
                 $("#write").delay(4000).removeClass("active");
                 $("#view").addClass("active");
+                
                 
                 //slide down
                 $("#previewcontent").delay(200).animate({
@@ -479,6 +503,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 }, {
                     duration: 4000
                 });
+                
                 
             });
              
