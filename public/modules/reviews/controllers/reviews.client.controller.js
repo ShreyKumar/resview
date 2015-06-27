@@ -183,6 +183,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("textarea#thoughts-value").html("");
                 $("#preview-outer").hide();
                 
+                //take out error
+                $("#building").unwrap("<div class='error' />");
+                $("#exp").unwrap("<div class='error' />");
+                $("#errormsg").html("");
+                
                 $("#writereview").show();
                 $("#seereviews").hide();
             });
@@ -418,15 +423,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("#previewcontent").wrapAll("<div class='container' />");
                 $("div.edit-btn").hide();
                 
-                /*
                 $("#previewcontent").animate({
                     marginTop: '-46%'
                 }, {
                     duration: 2000
                 });
-                */
+                
                 $("#preview-outer > div#preview > h3, #preview-outer > div#preview > p").hide();
-                $("#writereview").show();
                 
                 //reset everything in write review
                 $("#newreview").trigger("reset");
@@ -490,7 +493,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 
                 $("#write").delay(4000).removeClass("active");
                 $("#view").addClass("active");
-                
                 
                 //slide down
                 $("#previewcontent").delay(200).animate({
