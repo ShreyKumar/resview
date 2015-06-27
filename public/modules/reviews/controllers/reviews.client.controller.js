@@ -172,8 +172,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("#view").removeClass('active');
                 $("#write").addClass('active');
                 
-                //reset entire form
-                
+                //reset entire preview
+                $("div#insertbuilding").html("");
+                $("div#main-stars").children("div.glyphicon").removeClass("glyphicon-star");
+                $("div#main-stars").children("div.glyphicon").addClass("glyphicon-star-empty");
+                $("div#headline").html("");
+                $("div#donstars").html("");
+                $("div#foodstars").html("");
+                $("div#convstars").html("");
+                $("textarea#thoughts-value").html("");
+                $("#preview").hide();
                 
                 $("#writereview").show();
                 $("#seereviews").hide();
@@ -256,8 +264,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     
                     //go through every star and color it in
                     var i = 0
-                    var element = $("div#previewcontent div.name.row h3 div.col-md-4#main-stars").children().first();
-                    console.log(expstars);
+                    var element = $("div#previewcontent div#main-stars").children().first();
+                    console.log(element);
                     while(i < expstars){
                         element.removeClass('glyphicon-star-empty');
                         element.addClass('glyphicon-star');
