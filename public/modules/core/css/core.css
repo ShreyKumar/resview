@@ -138,6 +138,7 @@ div#stars {
 #thoughts > textarea {
     border: 1px solid #eee;
     padding-left: 1%;
+    width: 100%;
 }
 
 /* */

@@ -172,6 +172,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("#view").removeClass('active');
                 $("#write").addClass('active');
                 
+                //reset entire form
+                
+                
                 $("#writereview").show();
                 $("#seereviews").hide();
             });
@@ -180,6 +183,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 //change navs
                 $("#view").addClass('active');
                 $("#write").removeClass('active');
+                $("#previewcontent").html("");
+                $("#preview").hide();
                 
                 $("#writereview").hide();
                 $("#seereviews").show();
@@ -388,6 +393,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 
                 $("#previewcontent").animate({
                     marginTop: '-46%'
+                }, {
+                    duration: 2000
                 });
                 $("#preview > h3, #preview > p").hide();
                 $("#writereview").show();
@@ -447,8 +454,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 $("#previewcontent").css("margin-top", "-30%");
                 
                 //change content
-                $("#writereview").delay(4000).hide();
-                $("#seereviews").show();
+                $("#writereview").delay(2000).hide(0);
+                $("#seereviews").delay(2000).show(0);
                 
                 $("#write").delay(4000).removeClass("active");
                 $("#view").addClass("active");
@@ -456,9 +463,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 //slide down
                 $("#previewcontent").delay(200).animate({
                     marginTop: "12%"
+                }, {
+                    duration: 2000
                 });
-                $(".list-group").delay(200).animate({
+                $(".list-group").animate({
                     marginTop: height + 80
+                }, {
+                    duration: 4000
                 });
                 
             });
