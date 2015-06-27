@@ -452,6 +452,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 
                 $("#write").delay(4000).removeClass("active");
                 $("#view").addClass("active");
+                
+                //slide down
+                $("#previewcontent").delay(200).animate({
+                    marginTop: "12%"
+                });
+                $(".list-group").delay(200).animate({
+                    marginTop: height + 80
+                });
+                
             });
              
         });
