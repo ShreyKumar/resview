@@ -117,6 +117,13 @@ div#previewcontent {
     padding-bottom: 2%;
     width: 100%;
 }
+div.review {
+    background-color: black;
+    color: white;
+    padding-left: 3%;
+    padding-bottom: 2%;
+    margin: 2%;
+}
 a#headclick {
     text-decoration: none; 
     display: block; 

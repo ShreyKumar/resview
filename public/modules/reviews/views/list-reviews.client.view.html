@@ -3,6 +3,25 @@
         <h1>Reviews</h1>
     </div>
     <div class="list-group">
+        <div class="review" data-ng-repeat="review in reviews">
+            <h3>
+                <div class="row">
+                    <div class="col-md-4" data-ng-bind="review.user.displayName"></div>
+                    <div class="col-md-4" data-ng-bind=""></div>
+                    <div class="col-md-4">
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                        <div class="glyphicon glyphicon-star"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                </div>
+            </h3>
+            <span data-ng-bind="review.created | date:'medium'"></span>
+        </div>
         <a data-ng-repeat="review in reviews" data-ng-href="#!/reviews/{{review._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
