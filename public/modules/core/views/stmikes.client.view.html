@@ -1,49 +1,135 @@
-<section data-ng-controller="ReviewsController">
-    <div class="page-header">
-        <h1>New Review</h1>
+<section class="row content bg chestnut"data-ng-controller="ReviewsController">
+    <leaflet style="height: 300px; width: 300px"></leaflet>
+    <!-- Information -->
+    <div class="main contianer map-main" style="background-color: rgba(255, 255, 255, 0.7); opacity: 1">
+        <h2 class="text-center">Chestnut Residence</h2>
+        <div class="row container" style="width: 100%">
+            <div class="col-md-6 details">
+                <span class="glyphicon glyphicon-phone-alt"></span>   
+                Front Desk: 416-977-0707<br>
+                
+                <!-- Phone number -->
+                <span class="glyphicon glyphicon-phone-alt"></span>  
+                Residence office: 416-585-3160<br>
+                
+                <!-- Email -->
+                <span class="glyphicon glyphicon-envelope"></span>   
+                <a href="mailto:chestnutresidence@utoronto.ca">chestnutresidence@utoronto.ca</a><br>
+                
+                <!-- Address -->
+                <div style="margin-left: 15%">
+                    <div class="glyphicon glyphicon-home"></div>
+                </div>
+                <h5>89 Chestnut Street,</h5>
+                <h5>Toronto, ON</h5>
+                <h5>M5G 1R1</h5>
+                <br>
+                <!-- Average ratings -->
+                Food Quality     
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <br>
+                
+                Convinience       
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <br>
+                
+                Overall Experience   
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <br>
+            </div>
+            <!-- MAP here -->
+            <div class="col-md-6">
+                Can't see anything here? Reload the page
+                <div id="map-canvas"></div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+    
+    <!-- Reviews -->
+    <div class="main container" style="padding-top: 0%; width: ;">
+        <div id="tabbar" class="row">
+            <div class="tab col-md-6 text-center">
+                <a class="btn btn-lg" id="view">View all Reviews</a>
+            </div>
+            <div class="tab col-md-6 text-center">
+                <a class="btn btn-lg" id="write">Write a Review</a>
+            </div>
+        </div>
+        <div id="writereview">
+            <div data-ng-include="'modules/reviews/views/create-review.client.view.html'"></div>
+        </div>
+        <div id="preview-outer">
+            <div id="preview">
+                <h3>Heres how your review will look like</h3>
+                <p>Click headline to see the description!</p>
+                <div id="previewcontent" class="container">
+                    <div class="name row">
+                        <h3>
+                            <div class="col-md-4 text-center">
+                                {{ authentication.user.displayName }}
+                            </div>
+                            <div class="col-md-4 text-center" style="margin-top: -3%">
+                                <div id="insertbuilding"></div>
+                            </div>
+                            <div class="col-md-4 text-center" id="main-stars">
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                                <div class="glyphicon glyphicon-star-empty"></div>
+                            </div>
+                        </h3>
                     </div>
-                    
-                    <label class="control-label" for="comments">Comments</label>
-                    <div class="controls">
-                        <textarea rows="7" cols="10" data-ng-model="comments" id="comments" class="form-control" placeholder="Your comments" required></textarea>
+                    <div class="row" id="headline"></div>
+                    <div id="stars">
+                        <div id="donstars"></div>
+                        <div id="foodstars"></div>
+                        <div id="convstars"></div>
                     </div>
-                    
-                    <label class="control-label" for="foodquality">Food quality</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="foodquality" id="foodquality" class="form-control" required>
-                    </div>
-                    
-                    <label class="control-label" for="convinience">Convinience</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="convinience" id="convinience" class="form-control" required>
-                    </div>
-                    
-                    <label class="control-label" for="overallexp">Overall experience</label>
-                    <div class="controls">
-                        <input type="hidden" data-ng-model="overallexp" id="overallexp" class="form-control" required>
+                    <!-- Agree/Disagree -->
+                    <div class="row">
+                        <div id="agreement" class="row col-md-5">
+                            <a class="btn btn-lg btn-light col-md-6">
+                                <div class="fa fa-thumbs-o-up"></div>
+                                I agree
+                            </a>
+                            <a class="btn btn-lg btn-light col-md-6">
+                                <div class="fa fa-thumbs-o-down"></div>
+                                I disagree
+                            </a>
+                        </div>
+                        <div class="col-md-7" id="thoughts">
+                            <textarea cols="65" rows="2" placeholder="Your thoughts..." id="thoughts-value"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                <div class="row container edit-btn text-center">
+                    <div class="col-md-12">
+                        <a class="btn btn-lg btn-dark" id="edit"><span class="glyphicon glyphicon-triangle-left"></span>  Edit</a>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                <div class="row container edit-btn text-center">
+                    <div class="col-md-12">
+                        <a class="btn btn-lg btn-dark" id="perfect">Perfect!  <span class="glyphicon glyphicon-triangle-right"></span></a>
+                    </div>
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
+        
+        <div id="seereviews">
+            <div data-ng-include="'modules/reviews/views/list-reviews.client.view.html'"></div>
+        </div>
     </div>
 </section>

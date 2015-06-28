@@ -16,6 +16,11 @@
                         <textarea rows="7" cols="30" data-ng-model="comments" id="comments" class="form-control" placeholder="(Optional) Elaborate here. The more detail, the better!" required></textarea>
                     </div>
                     
+                    <input type="checkbox" id="hidename" ng-checked="hideName()"/>
+                    <label for="hidename">Hide my name</label>&nbsp;
+                    <input type="checkbox" id="hidepic" ng-checked="hidePic()"/>
+                    <label for="hidepic">Hide my picture</label>&nbsp;
+                    
                     <div class="row">
                         <div class="col-md-2">
                             <label class="control-label" for="don">Don</label>

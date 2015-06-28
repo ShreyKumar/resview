@@ -1,9 +1,11 @@
 'use strict';
 
 // Reviews controller
-angular.module('reviews').controller('ReviewsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Reviews',
-	function($scope, $stateParams, $location, Authentication, Reviews) {
+angular.module('reviews').controller('ReviewsController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Reviews',
+	function($scope, $rootScope, $stateParams, $location, Authentication, Reviews) {
 		$scope.authentication = Authentication;
+        $scope.isName = false;
+        
         $scope.residence = "Chestnut Residence";
         
         function initialize() {
@@ -209,11 +211,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
             $('section > div.col-md-12').css("background-color", "white");
             
             //hide preview initially
+            $("#preview-outer").hide();
             $("#preview").hide();
             
             //Form validation
             $("input#submit").unbind().click(function(){
-                console.log('clicked');
+                
+                //hide name
+                var isName = $("#hidename").is(":checked");
+                var isPic = $("#hidepic").is(":checked");
+                
+                if(isName){
+                    $("#reviewer").html("Anonymous");
+                } else {
+                    $("#reviewer").html($scope.authentication.user.displayName);
+                }
+                
                 if(!$('div#exp > div.col-md-3 > div.controls').children('div.glyphicon').hasClass('isClicked')){
                     $("div#errormsg").html("");
                     $('div#exp').wrapAll('<div class="error" />');
@@ -224,7 +237,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     $('div#errormsg').append('<h4>Building is required</h4>');
                 } else {
                     if($("select").val() == 'chestnut'){
-                       $('#insertbuilding').html("Chestnut Residence"); 
+                       $('#insertbuilding').html("Chestnut Residence");
                     }
                     //here comes the animation
                     $('#writereview').fadeOut();
@@ -511,4 +524,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
              
         });
         
+        /********************************************** List reviews ***************************************************/
+        $(document).unbind().ready(function(){
+            $scope.find();
+            console.log($scope.reviews);
+        });
     }]);
