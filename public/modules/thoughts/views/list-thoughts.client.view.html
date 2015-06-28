@@ -1,0 +1,19 @@
+<section data-ng-controller="ThoughtsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Thoughts</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="thought in thoughts" data-ng-href="#!/thoughts/{{thought._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="thought.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="thought.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="thought.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!thoughts.$resolved || thoughts.length">
+    	No Thoughts yet, why don't you <a href="/#!/thoughts/create">create one</a>?
+    </div>
+</section>
