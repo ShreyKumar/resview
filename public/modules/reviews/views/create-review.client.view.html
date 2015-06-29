@@ -8,12 +8,12 @@
                 <div class="form-group">
                     <label class="control-label" for="name"></label>
                     <div class="controls">
-                        <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Describe your experience" required>
+                        <input type="text" data-ng-model="headline" id="title" class="form-control" placeholder="Describe your experience" required>
                     </div>
                     
                     <label class="control-label" for="comments"></label>
                     <div class="controls">
-                        <textarea rows="7" cols="30" data-ng-model="comments" id="comments" class="form-control" placeholder="(Optional) Elaborate here. The more detail, the better!" required></textarea>
+                        <textarea rows="7" cols="30" data-ng-model="description" id="comments" class="form-control" placeholder="(Optional) Elaborate here. The more detail, the better!" required></textarea>
                     </div>
                     
                     <input type="checkbox" id="hidename" ng-checked="hideName()"/>
@@ -90,7 +90,7 @@
                             <label class="control-label" for="building">Building</label>
                         </div>
                         <div class="col-md-6" style="padding-top: 1%">
-                            <div class="controls">
+                            <div class="controls" data-ng-model="building">
                                 <select id="building-value">
                                     <option value="none">Please select:</option>
                                     <option value="chestnut">Chestnut Residence</option>

@@ -44,29 +44,28 @@ angular.module('reviews').controller('ReviewsController', ['$scope', '$rootScope
 google.maps.event.addDomListener(window, 'load', initialize);
         // END G MAPS
         
-        /*
+        //global variables
+        var building;
+        
 		// Create new Review
-		$scope.create = function() {
+		$scope.create = function(don, food, conv, overallexp, building) {
 			// Create new Review object
 			var review = new Reviews ({
-				name: this.name,
-                comments: this.comments,
-                foodquality: this.foodquality,
-                convinience: this.convinience,
-                overallexp: this.overallexp
+				headline: this.headline,
+                description: this.description,
+                don: don,
+                foodquality: food,
+                convinience: conv,
+                overallexp: overallexp,
+                likes: '0',
+                dislikes: '0',
+                building: building
 			});
-
-			// Redirect after save
-			review.$save(function(response) {
-				$location.path('reviews/' + response._id);
-
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+            
+            console.log(review);
+			// save it 
+			//review.$save();
 		};
-        */
 
 		// Remove existing Review
 		$scope.remove = function(review) {
@@ -236,7 +235,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     $('div#building').wrapAll('<div class="error" />');
                     $('div#errormsg').append('<h4>Building is required</h4>');
                 } else {
-                    if($("select").val() == 'chestnut'){
+                    building = $("select#building-value").val();
+                    if(building == 'chestnut'){
                        $('#insertbuilding').html("Chestnut Residence");
                     }
                     //here comes the animation
@@ -519,7 +519,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     duration: 4000
                 });
                 
-                
+                //add to review
+                $scope.create(donstars, foodstars, convstars, expstars, building);
             });
              
         });

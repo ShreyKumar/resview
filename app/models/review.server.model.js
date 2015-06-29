@@ -10,38 +10,61 @@ var mongoose = require('mongoose'),
  * Review Schema
  */
 var ReviewSchema = new Schema({
-	name: {
+	headline: {
 		type: String,
-		default: 'Anonymous',
+		default: '',
 		trim: true
 	},
-    comments: {
+    description: {
         type: String,
         default: '',
+        trim: true
+    },
+    agrees: {
+        type: String,
+        default: '0',
+        trim: true
+    },
+    disagrees: {
+        type: String,
+        default: '0',
         trim: true
     },
     foodquality: {
         type: String,
         default: '0',
-        required: 'Please rate the overall food quality',
         trim: true
     },
     convinience: {
         type: String,
         default: '0',
-        required: 'Please rate the convinience',
+        trim: true
+    },
+    don: {
+        type: String,
+        default: '0',
         trim: true
     },
     overallexp: {
         type: String,
-        default: '0',
-        required: 'Please rate your overall experience',
-        trim: true
+        default: '',
+        trim: true,
+        required: 'Please rate your overall experience'
+    },
+    building: {
+        type: String,
+        default: 'Please Select:',
+        trim: true, 
+        required: 'Please enter a valid building'
     },
 	created: {
 		type: Date,
 		default: Date.now
 	},
+    thoughts: {
+        type: Schema.ObjectId,
+        ref: 'Thoughts'
+    },
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
