@@ -46,13 +46,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
         
         //global variables
         var building;
+        var headline;
+        var description;
         
 		// Create new Review
-		$scope.create = function(don, food, conv, overallexp, building) {
+		$scope.create = function(headline, description, don, food, conv, overallexp, building) {
 			// Create new Review object
 			var review = new Reviews ({
-				headline: this.headline,
-                description: this.description,
+				headline: headline,
+                description: description,
                 don: don,
                 foodquality: food,
                 convinience: conv,
@@ -64,7 +66,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
             
             console.log(review);
 			// save it 
-			//review.$save();
+			review.$save();
 		};
 
 		// Remove existing Review
@@ -260,19 +262,20 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     $("#previewcontent").css("margin-right", "0px");
                     $("#previewcontent").css("position", "relative");
                     
+                    headline = $("#title").val();
                     if($("#title").val() != ""){
                         //load up the content
                         var preview = "<i><div class='fa fa-quote-left' style='font-size: 20px'></div><h3><a id='headclick'>&nbsp;" +
-                            $("#title").val() + "</a></h3>" + 
-                            "<div class='row container' id='more'></div>" + 
+                            headline + "</a></h3>" + 
+                            "<div class='row container' id='more' style='width: 100%'></div>" + 
                             "&nbsp;<div class='fa fa-quote-right' style='font-size: 20px'></div></i>";
 
                     }
                     $("#headline").html(preview);
                         
-                        
                     //initially hide more
-                    $("div#more").html("<i>" + $("textarea#comments").val() + "</i>");
+                    description = $("textarea#comments").val()
+                    $("div#more").html("<i>" + description + "</i>");
                     $("div#more").hide();
                         
                     var down = false;
@@ -520,7 +523,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 });
                 
                 //add to review
-                $scope.create(donstars, foodstars, convstars, expstars, building);
+                $scope.create(headline, description, String(donstars), String(foodstars), String(convstars), String(expstars), building);
             });
              
         });
