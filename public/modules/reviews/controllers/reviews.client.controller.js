@@ -536,24 +536,35 @@ google.maps.event.addDomListener(window, 'load', initialize);
         $(document).ready(function(){
             $scope.find();
             
+            $scope.trackFull = function(num){
+                return new Array(parseInt(num));
+            }
+            $scope.trackEmpty = function(num){
+                return new Array(5 - parseInt(num));   
+            }
             
             //get all overall exp in chronological order
             $scope.expratings = [];
+            console.log($scope.reviews);
             $scope.reviews.$promise.then(function(res){
                 console.log(res);
                 for(var i = 0; i < res.length; i++){
                     $scope.expratings.push(parseInt(res[i].overallexp));
                     
                     $scope.description = res[i].description;
-                    //add quotes if description exists
                     
+                    //building
+                    if(res[i].building == 'chestnut'){ $scope.building = 'Chestnut Residence' }
+                    
+                    /*
                     if($scope.description.length != 0){
-                        console.log($("h3 #review-start-" + res[i]._id).hasClass('fa'));
                         $("#review-start-" + res[i]._id).addClass('fa-quote-left');
                         $("#review-end-" + res[i]._id).addClass('fa-quote-right');
                     }
+                    */
                     
                 }
+                console.log($scope.expratings);
             });
             //console.log(typeof $scope.reviews[0]);
         });

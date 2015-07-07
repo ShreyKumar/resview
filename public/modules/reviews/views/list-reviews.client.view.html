@@ -7,13 +7,11 @@
             <h3>
                 <div class="row">
                     <div class="col-md-4" data-ng-bind="review.user.displayName"></div>
-                    <div class="col-md-4" data-ng-bind=""></div>
-                    <div class="col-md-4" class="expstars">
-                        <div class="glyphicon glyphicon-star"></div>
-                        <div class="glyphicon glyphicon-star"></div>
-                        <div class="glyphicon glyphicon-star"></div>
-                        <div class="glyphicon glyphicon-star"></div>
-                        <div class="glyphicon glyphicon-star"></div>
+                    <div class="col-md-4" data-ng-bind="building"></div>
+                    <div class="col-md-4">
+                        <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.overallexp) track by $index"></div>
+                        
+                        <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.overallexp) track by $index"></div>
                     </div>
                 </div>
                 <div class="fa" id="review-start-{{ review._id }}"></div>
@@ -23,6 +21,29 @@
                 <div class="fa" id="review-end-{{ review._id }}"></div>
                 <div class="row">
                     <div id="description" data-ng-bind="review.description"></div>
+                </div>
+                
+                <!-- Other indicators -->
+                <div class="row" ng-if="review.foodquality != '0'">
+                    <div class="col-md-6">Food Quality</div>
+                    <div class="col-md-6">
+                        <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.foodquality) track by $index"></div>
+                        <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.foodquality) track by $index"></div>
+                    </div>
+                </div>
+                <div class="row" ng-if="review.don != '0'">
+                    <div class="col-md-6">Don</div>
+                    <div class="col-md-6">
+                        <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.don) track by $index"></div>
+                        <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.don) track by $index"></div>
+                    </div>
+                </div>
+                <div class="row" ng-if="review.convinience != '0'">
+                    <div class="col-md-6">Convinience</div>
+                    <div class="col-md-6">
+                        <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.convinience) track by $index"></div>
+                        <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.convinience) track by $index"></div>
+                    </div>
                 </div>
             </h3>
             <span data-ng-bind="review.created | date:'medium'"></span>
