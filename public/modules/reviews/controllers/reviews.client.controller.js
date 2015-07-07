@@ -69,6 +69,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			review.$save();
 		};
 
+        $scope.getStars = function() {
+            console.log(parseInt(review.overallexp));
+        };
+        
 		// Remove existing Review
 		$scope.remove = function(review) {
 			if ( review ) { 
@@ -529,8 +533,28 @@ google.maps.event.addDomListener(window, 'load', initialize);
         });
         
         /********************************************** List reviews ***************************************************/
-        $(document).unbind().ready(function(){
+        $(document).ready(function(){
             $scope.find();
-            console.log($scope.reviews);
+            
+            
+            //get all overall exp in chronological order
+            $scope.expratings = [];
+            $scope.reviews.$promise.then(function(res){
+                console.log(res);
+                for(var i = 0; i < res.length; i++){
+                    $scope.expratings.push(parseInt(res[i].overallexp));
+                    
+                    $scope.description = res[i].description;
+                    //add quotes if description exists
+                    
+                    if($scope.description.length != 0){
+                        console.log($("h3 #review-start-" + res[i]._id).hasClass('fa'));
+                        $("#review-start-" + res[i]._id).addClass('fa-quote-left');
+                        $("#review-end-" + res[i]._id).addClass('fa-quote-right');
+                    }
+                    
+                }
+            });
+            //console.log(typeof $scope.reviews[0]);
         });
     }]);

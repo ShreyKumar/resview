@@ -1,4 +1,4 @@
-<section data-ng-controller="ReviewsController" data-ng-init="find()">
+<section data-ng-controller="ReviewsController">
     <div class="page-header">
         <h1>Reviews</h1>
     </div>
@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-4" data-ng-bind="review.user.displayName"></div>
                     <div class="col-md-4" data-ng-bind=""></div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" class="expstars">
                         <div class="glyphicon glyphicon-star"></div>
                         <div class="glyphicon glyphicon-star"></div>
                         <div class="glyphicon glyphicon-star"></div>
@@ -16,11 +16,13 @@
                         <div class="glyphicon glyphicon-star"></div>
                     </div>
                 </div>
+                <div class="fa" id="review-start-{{ review._id }}"></div>
                 <div class="row">
-                    <div id="headline" data-ng-bind="headline"></div>
+                    <div id="headline" data-ng-bind="review.headline"></div>
                 </div>
+                <div class="fa" id="review-end-{{ review._id }}"></div>
                 <div class="row">
-                    <div id="description" data-ng-bind="description"></div>
+                    <div id="description" data-ng-bind="review.description"></div>
                 </div>
             </h3>
             <span data-ng-bind="review.created | date:'medium'"></span>
