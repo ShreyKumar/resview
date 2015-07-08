@@ -6,22 +6,22 @@
         <div class="review" data-ng-repeat="review in reviews">
             <h3>
                 <div class="row">
-                    <div class="col-md-4" data-ng-bind="review.user.displayName"></div>
-                    <div class="col-md-4" data-ng-bind="building"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center" data-ng-bind="review.user.displayName"></div>
+                    <div class="col-md-4 text-center" data-ng-bind="building"></div>
+                    <div class="col-md-4 text-center">
                         <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.overallexp) track by $index"></div>
                         
                         <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.overallexp) track by $index"></div>
                     </div>
                 </div>
-                <div class="fa" id="review-start-{{ review._id }}"></div>
+                <div class="fa fa-quote-left" ng-if="review.description != ''"></div>
                 <div class="row">
-                    <div id="headline" data-ng-bind="review.headline"></div>
+                    <div class="headline" data-ng-bind="review.headline"></div>
                 </div>
-                <div class="fa" id="review-end-{{ review._id }}"></div>
                 <div class="row">
-                    <div id="description" data-ng-bind="review.description"></div>
+                    <div class="description" ng-model="description" data-ng-bind="review.description"></div>
                 </div>
+                <div class="fa fa-quote-right" ng-if="review.description != ''"></div>
                 
                 <!-- Other indicators -->
                 <div class="row" ng-if="review.foodquality != '0'">
@@ -43,6 +43,23 @@
                     <div class="col-md-6">
                         <div class="glyphicon glyphicon-star" style="margin-right: 5px" ng-repeat="i in trackFull(review.convinience) track by $index"></div>
                         <div class="glyphicon glyphicon-star-empty" style="margin-right: 9px; margin-left:-4px" ng-repeat="i in trackEmpty(review.convinience) track by $index"></div>
+                    </div>
+                </div>
+                <div id="row">
+                    <div class="col-md-6 row">
+                        <div class="col-md-6">
+                            <a class="btn btn-light btn-lg agree">
+                                <div class="fa fa-thumbs-up"></div>     I agree
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-light btn-lg disagree">
+                                <div class="fa fa-thumbs-down"></div>       I disagree
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea placeholder="Your Thoughts..."></textarea>
                     </div>
                 </div>
             </h3>

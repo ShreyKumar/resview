@@ -529,7 +529,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 //add to review
                 $scope.create(headline, description, String(donstars), String(foodstars), String(convstars), String(expstars), building);
             });
-             
         });
         
         /********************************************** List reviews ***************************************************/
@@ -542,30 +541,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
             $scope.trackEmpty = function(num){
                 return new Array(5 - parseInt(num));   
             }
+            var headisDown = false;
+            $(document).unbind().on('click', 'div.headline', function(){
+                console.log(headisDown);
+                if(headisDown){
+                    $("div.description").slideUp();
+                    headisDown = false;  
+                } else {
+                    $("div.description").slideDown();
+                    headisDown = true;
+                }
+                
+            });
             
             //get all overall exp in chronological order
-            $scope.expratings = [];
-            console.log($scope.reviews);
             $scope.reviews.$promise.then(function(res){
                 console.log(res);
-                for(var i = 0; i < res.length; i++){
-                    $scope.expratings.push(parseInt(res[i].overallexp));
-                    
-                    $scope.description = res[i].description;
-                    
-                    //building
-                    if(res[i].building == 'chestnut'){ $scope.building = 'Chestnut Residence' }
-                    
-                    /*
-                    if($scope.description.length != 0){
-                        $("#review-start-" + res[i]._id).addClass('fa-quote-left');
-                        $("#review-end-" + res[i]._id).addClass('fa-quote-right');
-                    }
-                    */
-                    
-                }
-                console.log($scope.expratings);
             });
-            //console.log(typeof $scope.reviews[0]);
         });
     }]);

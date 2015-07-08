@@ -123,6 +123,18 @@ div.review {
     padding-left: 3%;
     padding-bottom: 2%;
     margin: 2%;
+    padding-top: 0.5%;
+}
+div.headline, div.description {
+    padding-left: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+div.headline {
+    cursor: pointer;
+}
+div.description {
+    font-size: 14px;   
 }
 a#headclick {
     text-decoration: none; 
