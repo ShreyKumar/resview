@@ -47,23 +47,30 @@
                 </div>
                 <div id="row">
                     <div class="col-md-6 row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 agree-parent">
                             <a class="btn btn-light btn-lg agree">
                                 <div class="fa fa-thumbs-up"></div>     I agree
                             </a>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 disagree-parent">
                             <a class="btn btn-light btn-lg disagree">
                                 <div class="fa fa-thumbs-down"></div>       I disagree
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <textarea placeholder="Your Thoughts..."></textarea>
+                        <textarea placeholder="Your Thoughts..." class="thoughts"></textarea>
                     </div>
                 </div>
             </h3>
-            <span data-ng-bind="review.created | date:'medium'"></span>
+            <div class="row date">
+                <div class="col-md-6">
+                    Created on <span data-ng-bind="review.created | date:'medium'"></span>
+                </div>
+                <div class="col-md-6 comment-area">
+                    Hello
+                </div>
+            </div>
         </div>
         <a data-ng-repeat="review in reviews" data-ng-href="#!/reviews/{{review._id}}" class="list-group-item">
 			<small class="list-group-item-text">

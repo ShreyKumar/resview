@@ -151,13 +151,24 @@ div#stars {
 }
 
 /* comment form */
-#thoughts {
+#thoughts, .thoughts {
     height: 46px;
+}
+.thoughts {
+    width: 100%;
 }
 #thoughts > textarea {
     border: 1px solid #eee;
     padding-left: 1%;
     width: 100%;
 }
-
-/* */
+a.agree, a.disagree {
+    width: 100%;
+}
+div.agree-parent, div.disagree-parent {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+div.date {
+    width: 96%;
+}

@@ -541,9 +541,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
             $scope.trackEmpty = function(num){
                 return new Array(5 - parseInt(num));   
             }
-            var headisDown = false;
+            var headisDown = true;
             $(document).unbind().on('click', 'div.headline', function(){
-                console.log(headisDown);
                 if(headisDown){
                     $("div.description").slideUp();
                     headisDown = false;  
