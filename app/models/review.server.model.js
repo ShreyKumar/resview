@@ -21,13 +21,13 @@ var ReviewSchema = new Schema({
         trim: true
     },
     agrees: {
-        type: String,
-        default: '0',
+        type: Array,
+        default: [],
         trim: true
     },
     disagrees: {
-        type: String,
-        default: '0',
+        type: Array,
+        default: [],
         trim: true
     },
     foodquality: {

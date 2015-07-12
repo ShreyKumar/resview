@@ -48,12 +48,12 @@
                 <div id="row">
                     <div class="col-md-6 row">
                         <div class="col-md-6 agree-parent">
-                            <a class="btn btn-light btn-lg agree">
+                            <a class="btn btn-light btn-lg agree" ng-click="agree(review._id)">
                                 <div class="fa fa-thumbs-up"></div>     I agree
                             </a>
                         </div>
                         <div class="col-md-6 disagree-parent">
-                            <a class="btn btn-light btn-lg disagree">
+                            <a class="btn btn-light btn-lg disagree" ng-click="disagree(review._id)">
                                 <div class="fa fa-thumbs-down"></div>       I disagree
                             </a>
                         </div>
@@ -65,11 +65,18 @@
             </h3>
             <div class="row date">
                 <div class="col-md-6">
+                    <div ng-show="review.agrees.length == '0' && review.disagrees.length == '0'">
+                        Nobody agrees or disagrees yet.
+                    </div>
+                    <div ng-hide="review.agrees.length == '0' && review.disagrees.length == '0'">
+                        <div data-ng-bind="review.agrees.length"></div> people agree
+                        <div data-ng-bind="review.disagrees.length"></div> people disagree
+                    </div>
                     Created on <span data-ng-bind="review.created | date:'medium'"></span>
                 </div>
-                <div class="col-md-6 comment-area">
-                    Hello
-                </div>
+                <a class="thoughts-control" ng-click="show">Show thoughts</a>
+                <div class="col-md-6 thought-area" ng-show="show">Hello</div>
+                
             </div>
         </div>
         <a data-ng-repeat="review in reviews" data-ng-href="#!/reviews/{{review._id}}" class="list-group-item">

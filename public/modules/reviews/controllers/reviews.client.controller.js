@@ -1,8 +1,8 @@
 'use strict';
 
 // Reviews controller
-angular.module('reviews').controller('ReviewsController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Reviews',
-	function($scope, $rootScope, $stateParams, $location, Authentication, Reviews) {
+angular.module('reviews').controller('ReviewsController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', '$http', 'Reviews',
+	function($scope, $rootScope, $stateParams, $location, Authentication, $http, Reviews) {
 		$scope.authentication = Authentication;
         $scope.isName = false;
         
@@ -59,8 +59,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 foodquality: food,
                 convinience: conv,
                 overallexp: overallexp,
-                likes: '0',
-                dislikes: '0',
+                agrees: [],
+                disagrees: [],
                 building: building
 			});
             
@@ -541,16 +541,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
             $scope.trackEmpty = function(num){
                 return new Array(5 - parseInt(num));   
             }
-            var headisDown = true;
+            
+            $("div.description").css("display", "none");
             $(document).unbind().on('click', 'div.headline', function(){
-                if(headisDown){
-                    $("div.description").slideUp();
-                    headisDown = false;  
-                } else {
-                    $("div.description").slideDown();
-                    headisDown = true;
-                }
-                
+                var description = $(this).parent().parent().find("div.row > div.description");
+                description.slideToggle();
             });
             
             //get all overall exp in chronological order
@@ -558,4 +553,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 console.log(res);
             });
         });
+        
+        /* Liking and disliking reviews */
+        $scope.agree = function(id){
+            console.log(id);
+            $http.get().success(function(){
+                
+            });
+        }
+        $scope.disagree = function(id){
+            console.log(id);
+        }
     }]);
