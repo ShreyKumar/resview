@@ -3,7 +3,7 @@
         <h1>Reviews</h1>
     </div>
     <div class="list-group">
-        <div class="review" data-ng-repeat="review in reviews">
+        <div id="review-id-{{ review._id }}" class="review" data-ng-repeat="review in reviews">
             <h3>
                 <div class="row">
                     <div class="col-md-4 text-center" data-ng-bind="review.user.displayName"></div>
@@ -69,8 +69,8 @@
                         Nobody agrees or disagrees yet.
                     </div>
                     <div ng-hide="review.agrees.length == '0' && review.disagrees.length == '0'">
-                        <div data-ng-bind="review.agrees.length"></div> people agree
-                        <div data-ng-bind="review.disagrees.length"></div> people disagree
+                        <div ng-model="agr">{{ review.agrees.length }}</div> people agree
+                        <div data-ng-bind="review.disagrees.length" ng-model="disagrees"></div> people disagree
                     </div>
                     Created on <span data-ng-bind="review.created | date:'medium'"></span>
                 </div>

@@ -91,9 +91,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		};
 
 		// Update existing Review
-		$scope.update = function() {
-			var review = $scope.review;
-
+		$scope.update = function(review) {
 			review.$update(function() {
 				$location.path('reviews/' + review._id);
 			}, function(errorResponse) {
@@ -557,11 +555,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
         /* Liking and disliking reviews */
         $scope.agree = function(id){
             console.log(id);
-            $http.get().success(function(){
+            $http.get("reviews/" + id).success(function(data){
+                console.log(data);
+                var agrees = data.agrees;
+                agrees.push($scope.authentication.user);
+                data.agrees = agrees;
                 
+                var review = new Reviews(data);
+                $scope.agr = "Hey";
+                console.log($scope.agr);
+                
+                /*
+                review.$update(function(){
+                });
+                */
             });
         }
         $scope.disagree = function(id){
             console.log(id);
+            $http.get("reviews/" + id).success(function(data){
+                console.log(data);
+            });
         }
     }]);
