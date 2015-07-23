@@ -69,8 +69,8 @@
                         Nobody agrees or disagrees yet.
                     </div>
                     <div ng-hide="review.agrees.length == '0' && review.disagrees.length == '0'">
-                        <div ng-model="agr">{{ review.agrees.length }}</div> people agree
-                        <div data-ng-bind="review.disagrees.length" ng-model="disagrees"></div> people disagree
+                        <div class="agrees" ng-model="agrees" data-ng-bind="review.agrees.length"></div> people agree
+                        <div class="disagrees" data-ng-bind="review.disagrees.length" ng-model="disagrees"></div> people disagree
                     </div>
                     Created on <span data-ng-bind="review.created | date:'medium'"></span>
                 </div>

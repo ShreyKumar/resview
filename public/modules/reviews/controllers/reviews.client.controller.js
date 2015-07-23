@@ -552,23 +552,39 @@ google.maps.event.addDomListener(window, 'load', initialize);
             });
         });
         
+        $scope.hasUser = function(user, agrees){
+            for(var i = 0; i < agrees.length; i++){
+                if(agrees[i]._id == user._id){
+                    return true;
+                }
+            }
+            return false;
+        }
+        
         /* Liking and disliking reviews */
         $scope.agree = function(id){
             console.log(id);
             $http.get("reviews/" + id).success(function(data){
                 console.log(data);
                 var agrees = data.agrees;
-                agrees.push($scope.authentication.user);
-                data.agrees = agrees;
                 
-                var review = new Reviews(data);
-                $scope.agr = "Hey";
-                console.log($scope.agr);
-                
-                /*
-                review.$update(function(){
-                });
-                */
+                //add user only if he doesn't exist
+                if(!$scope.hasUser($scope.authentication.user, agrees)){
+                    agrees.push($scope.authentication.user);
+                    data.agrees = agrees;
+
+                    var review = new Reviews(data);
+                    $(document).ready(function(){
+                        var current = parseInt($("div#review-id-" + id + " div.agrees").html());
+                        current += 1;
+                        $("div#review-id-" + id + " div.agrees").html(String(current));
+                    });
+
+                    /*
+                    review.$update(function(){
+                    });
+                    */
+                }
             });
         }
         $scope.disagree = function(id){
